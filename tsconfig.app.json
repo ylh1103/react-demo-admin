@@ -1,26 +1,57 @@
 {
   "compilerOptions": {
+    // TS 构建信息文件 
+    // 此设置允许你指定一个文件来存储增量编译信息作为复合项目的一部分，从而可以更快地构建更大的 TypeScript 代码库
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    // target 设置会更改哪些 JS 功能被降级以及哪些功能保持不变
+    // 现代浏览器支持所有 ES6 功能，因此 ES6 是一个不错的选择
     "target": "ES2020",
-    "useDefineForClassFields": true,
+    // TypeScript 包含一组用于内置 JS API（如 Math）的默认类型定义，以及用于浏览器环境中发现的事物的类型定义（如 document）。TypeScript 还包括与你指定的 target 匹配的较新 JS 功能的 API；例如，如果 target 是 ES6 或更新版本，则 Map 的定义可用
+    // 你的程序不在浏览器中运行，因此你不需要 "dom" 类型定义
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    // 设置程序的模块系统
     "module": "ESNext",
+    // 跳过声明文件的类型检查
+    // 这可以节省编译时间，但会以类型系统准确性为代价
     "skipLibCheck": true,
+    "useDefineForClassFields": true,
 
     /* Bundler mode */
+    // 指定模块解析策略
     "moduleResolution": "Bundler",
+    // 允许导入 TS 扩展
+    // 允许 TypeScript 文件使用 TypeScript 特定的扩展（如 .ts、.mts 或 .tsx）相互导入
+    // 仅当启用 --noEmit 或 --emitDeclarationOnly 时才允许使用此标志，因为这些导入路径在 JavaScript 输出文件中运行时无法解析。这里的期望是你的解析器（例如你的打包器、运行时或其他工具）将使 .ts 文件之间的这些导入工作
     "allowImportingTsExtensions": true,
+    // 隔离模块
+    // 设置 isolatedModules 标志会告诉 TypeScript，如果你编写的某些代码无法由单文件转译过程正确解释，则它会触发警告
     "isolatedModules": true,
+    // 模块检测 
+    // "force" - 确保每个非声明文件都被视为模块
     "moduleDetection": "force",
+    // 不要触发编译器输出文件，如 JavaScript 源代码、源映射或声明
+    // 这为另一个工具（如 Babel 或 swc）腾出了空间，用于将 TypeScript 文件转换为可以在 JavaScript 环境中运行的文件
+    // 然后，你可以将 TypeScript 用作提供编辑器集成的工具，并用作源代码类型检查器
     "noEmit": true,
+    // 控制如何在 JavaScript 文件中触发 JSX 构造。这只会影响从 .tsx 文件中启动的 JS 文件的输出
+    // react-jsx：触发 .js 文件，其中 JSX 更改为针对生产优化的 _jsx 调用
     "jsx": "react-jsx",
 
     /* Linting */
+    // strict 标志启用了广泛的类型检查行为，从而更有力地保证了程序的正确性。打开此功能相当于启用所有严格模式系列选项
+    // 然后，你可以根据需要关闭单独的严格模式系列检查
     "strict": true,
+    // 报告未使用的局部变量的错误
     "noUnusedLocals": true,
+    // 报告函数中未使用的参数的错误
     "noUnusedParameters": true,
+    // 报告 switch 语句中 fallthrough 情况的错误。确保 switch 语句中的任何非空情况都包含 break、return 或 throw。这意味着你不会意外发送 case fallthrough 错误
     "noFallthroughCasesInSwitch": true,
+    // 在 JavaScript 中，可以 import 模块而无需实际从中导入任何值
+    // import "some-module";
+    // import "./button-component.css";
     "noUncheckedSideEffectImports": true
   },
+  // 指定要包含在程序中的文件名或模式数组。这些文件名是相对于包含 tsconfig.json 文件的目录解析的
   "include": ["src"]
 }
