@@ -1,10 +1,10 @@
 {
-  "files": [],
   // 项目引用允许你将 TypeScript 程序构建为更小的部分
   // 通过这样做，你可以大大缩短构建时间，强制组件之间的逻辑分离，并以新的更好的方式组织你的代码
   // 每个引用的 path 属性可以指向包含 tsconfig.json 文件的目录，或者指向配置文件本身
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
-  ]
+  ],
+  "files": []
 }

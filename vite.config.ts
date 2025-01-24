@@ -1,10 +1,36 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import process from 'node:process';
+import react from '@vitejs/plugin-react';
+import { defineConfig, loadEnv } from 'vite';
 
-// https://vite.dev/config/
+// 使用 defineConfig 工具函数，这样不用 jsdoc 注解也可以获取类型提示
 export default defineConfig((config) => {
-  console.log("🚀 ~ defineConfig ~ config:", config)
+  console.log('🚀 ~ defineConfig ~ config:', config);
+  // 根据当前工作目录中的 `mode` 加载 .env 文件
+  // process.cwd() 是一个方法，用于获取 Node.js 进程的当前工作目录
+  // 设置第三个参数为 '' 来加载所有环境变量，而不管是否有 `VITE_` 前缀
+  // 默认情况下只有前缀为 VITE_ 会被加载
+  const viteEnv = loadEnv(config.mode, process.cwd()) as unknown as Env.ImportMeta;
+  console.log('🚀 ~ defineConfig ~ viteEnv:', viteEnv);
   return {
+    // 开发或生产环境服务的公共基础路径，默认/
+    base: viteEnv.VITE_BASE_URL,
     plugins: [react()],
-  }
-})
+    server: {
+      host: '0.0.0.0',
+      port: 8080,
+      open: true,
+      proxy: {
+        '/api': {
+          target: 'http://localhost:3000',
+          changeOrigin: true,
+          rewrite: path => path.replace(/^\/api/, ''),
+        },
+      },
+      // 提前转换和缓存文件以进行预热。可以在服务器启动时提高初始页面加载速度，并防止转换瀑布。
+      // 请确保只添加经常使用的文件，以免在启动时过载 Vite 开发服务器
+      warmup: {
+        clientFiles: ['./index.html', './src/{pages,components}/*'],
+      },
+    },
+  };
+});
