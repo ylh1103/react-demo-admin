@@ -21,9 +21,14 @@ export const setupUnPluginIcon = (viteEnv: Env.ImportMeta) => {
       // import Icon from '~icons/local/svgName'
       customCollections: {
         [VITE_ICON_LOCAL_PREFIX]: FileSystemIconLoader(localIconPath, (svg) =>
-          svg.replace(/^<svg\s/, '<svg width="1em" height="1em" ')
+          svg.replace(/^<svg\s/, '<svg fill="currentColor" width="1em" height="1em" ')
         )
       },
+      iconCustomizer: (_, __, props) => {
+        props.width = '1em';
+        props.height = '1em';
+        props.fill = 'currentColor';
+      }
     })
   ];
 

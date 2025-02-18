@@ -107,6 +107,9 @@
     "useUpdateLayoutEffect": true,
     "useVirtualList": true,
     "useWebSocket": true,
-    "useWhyDidYouUpdate": true
+    "useWhyDidYouUpdate": true,
+    "LazyImport": true,
+    "AButton": true,
+    "IconLocalNoPermission": true
   }
 }

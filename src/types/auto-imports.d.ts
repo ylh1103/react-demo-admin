@@ -6,6 +6,9 @@
 // biome-ignore lint: disable
 export {}
 declare global {
+  const AButton: typeof import('antd')['Button']
+  const IconLocalNoPermission: typeof import('~icons/local/no-permission.tsx')['default']
+  const LazyImport: typeof import('../components/LazyImport/index')['LazyImport']
   const createRef: typeof import('react')['createRef']
   const forwardRef: typeof import('react')['forwardRef']
   const lazy: typeof import('react')['lazy']

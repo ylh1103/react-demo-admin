@@ -16,7 +16,7 @@ const boxenOptions: BoxenOptions = {
 export const setupProjectInfo = (): Plugin => {
   const { nodeMsg, pnpmMsg } =  getEnvInfo()
   const welcomeMessage = rainbow(
-    `🔔 本项目技术栈：Vite 6 + React 19 + TypeScript 5 + React Router 7 + Ant Design 5\n🔔 开发环境推荐：node>=20, pnpm>=10\n---------------------------------------------------------------------------------\n${nodeMsg}\n${pnpmMsg}`
+    `🔔 本项目技术栈：Vite 6 + React 19 + React Router 7 + TypeScript 5 + Tailwindcss 4 + Ant Design 5\n🔔 开发环境推荐：node>=20, pnpm>=10\n---------------------------------------------------------------------------------\n${nodeMsg}\n${pnpmMsg}`
   );
   return {
     buildStart() {

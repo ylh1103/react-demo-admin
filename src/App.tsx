@@ -1,9 +1,10 @@
+import Page403 from "./pages/Error/403"
 
 
 function App() {
   return (
     <>
-      Moka
+      <Page403 />
     </>
   )
 }
