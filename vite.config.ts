@@ -14,6 +14,7 @@ export default defineConfig((config) => {
   return {
     // 开发或生产环境服务的公共基础路径，默认/
     base: viteEnv.VITE_BASE_URL,
+    // 定义全局常量替换方式。其中每项在开发环境下会被定义在全局，而在构建时被静态替换
     define: {
       BUILD_TIME: JSON.stringify(buildTime)
     },
