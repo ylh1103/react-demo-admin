@@ -4,13 +4,15 @@ import removeConsole from 'vite-plugin-remove-console';
 
 import { setupHtmlPlugin } from './html';
 import { setupProjectInfo } from './info';
+import { setupAutoImport } from './auto-import';
 
 export const setupVitePlugins = (viteEnv: Env.ImportMeta, buildTime: string) => {
   const plugins: PluginOption = [
     react(),
     removeConsole(),
     setupHtmlPlugin(buildTime),
-    setupProjectInfo()
+    setupProjectInfo(),
+    setupAutoImport(viteEnv)
   ];
   return plugins;
 }
