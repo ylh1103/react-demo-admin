@@ -1,10 +1,10 @@
-import Page403 from "./pages/Error/403"
+import Page500 from "./pages/Error/500"
 
 
 function App() {
   return (
     <>
-      <Page403 />
+      <Page500 />
     </>
   )
 }

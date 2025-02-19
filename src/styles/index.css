@@ -1,3 +1,7 @@
 /* 初始化基础样式 */
 @import url('./normalize.css');
 @import "tailwindcss";
+
+html, body, #root {
+  height: 100%;
+}

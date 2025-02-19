@@ -110,6 +110,10 @@
     "useWhyDidYouUpdate": true,
     "LazyImport": true,
     "AButton": true,
-    "IconLocalNoPermission": true
+    "IconLocalNoPermission": true,
+    "IconLocalNotFound": true,
+    "IconLocalServiceError": true,
+    "ATypography": true,
+    "IconLocalError": true
   }
 }

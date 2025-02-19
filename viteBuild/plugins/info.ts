@@ -1,5 +1,5 @@
 import boxen, { type Options as BoxenOptions } from 'boxen';
-import { rainbow } from 'gradient-string';
+import { vice } from 'gradient-string';
 import type { Plugin } from 'vite';
 import { execSync } from 'child_process';
 
@@ -15,8 +15,8 @@ const boxenOptions: BoxenOptions = {
 // 在开发终端打印项目信息
 export const setupProjectInfo = (): Plugin => {
   const { nodeMsg, pnpmMsg } =  getEnvInfo()
-  const welcomeMessage = rainbow(
-    `🔔 本项目技术栈：Vite 6 + React 19 + React Router 7 + TypeScript 5 + Tailwindcss 4 + Ant Design 5\n🔔 开发环境推荐：node>=20, pnpm>=10\n---------------------------------------------------------------------------------\n${nodeMsg}\n${pnpmMsg}`
+  const welcomeMessage = vice.multiline(
+    `🔔 本项目技术栈：Vite 6 + React 19 + React Router 7 + TypeScript 5 + Tailwindcss 4 + Ant Design 5\n🔔 开发环境推荐：node>=20, pnpm>=10\n--------------------------------------------\n${nodeMsg}\n${pnpmMsg}`
   );
   return {
     buildStart() {

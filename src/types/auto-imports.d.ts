@@ -7,7 +7,11 @@
 export {}
 declare global {
   const AButton: typeof import('antd')['Button']
+  const ATypography: typeof import('antd')['Typography']
+  const IconLocalError: typeof import('~icons/local/error.tsx')['default']
   const IconLocalNoPermission: typeof import('~icons/local/no-permission.tsx')['default']
+  const IconLocalNotFound: typeof import('~icons/local/not-found.tsx')['default']
+  const IconLocalServiceError: typeof import('~icons/local/service-error.tsx')['default']
   const LazyImport: typeof import('../components/LazyImport/index')['LazyImport']
   const createRef: typeof import('react')['createRef']
   const forwardRef: typeof import('react')['forwardRef']
