@@ -114,6 +114,7 @@
     "IconLocalNotFound": true,
     "IconLocalServiceError": true,
     "ATypography": true,
-    "IconLocalError": true
+    "IconLocalError": true,
+    "AConfigProvider": true
   }
 }

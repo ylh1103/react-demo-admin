@@ -7,6 +7,7 @@
 export {}
 declare global {
   const AButton: typeof import('antd')['Button']
+  const AConfigProvider: typeof import('antd')['ConfigProvider']
   const ATypography: typeof import('antd')['Typography']
   const IconLocalError: typeof import('~icons/local/error.tsx')['default']
   const IconLocalNoPermission: typeof import('~icons/local/no-permission.tsx')['default']

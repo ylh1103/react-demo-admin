@@ -1,11 +1,11 @@
-import Page500 from "./pages/Error/500"
-
+import AntdConfig from './layouts/AntdConfig'
+import Test from './pages/Test'
 
 function App() {
   return (
-    <>
-      <Page500 />
-    </>
+    <AntdConfig>
+      <Test />
+    </AntdConfig>
   )
 }
 
