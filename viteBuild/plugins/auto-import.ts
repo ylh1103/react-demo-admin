@@ -1,8 +1,8 @@
-import AutoImport from 'unplugin-auto-import/vite';
-import IconsResolver from 'unplugin-icons/resolver';
+import AutoImport from 'unplugin-auto-import/vite'
+import IconsResolver from 'unplugin-icons/resolver'
 
-export const setupAutoImport = (viteEnv: Env.ImportMeta) => {
-  const { VITE_ICON_LOCAL_PREFIX, VITE_ICON_PREFIX } = viteEnv;
+export function setupAutoImport(viteEnv: Env.ImportMeta) {
+  const { VITE_ICON_LOCAL_PREFIX, VITE_ICON_PREFIX } = viteEnv
   return AutoImport({
     // 自动导出src下hooks和components文件
     dirs: ['src/hooks/**', 'src/components/**'],
@@ -23,16 +23,16 @@ export const setupAutoImport = (viteEnv: Env.ImportMeta) => {
         componentPrefix: VITE_ICON_PREFIX,
         extension: 'tsx',
       }),
-      autoImportAntd
-    ]
-  });
+      autoImportAntd,
+    ],
+  })
 }
 
 // 动态自动导入antd
-const autoImportAntd = (componentName: string) => {
-  const pattern = /^A[A-Z]/;
+function autoImportAntd(componentName: string) {
+  const pattern = /^A[A-Z]/
   if (pattern.test(componentName)) {
-    return { from: 'antd', name: componentName.slice(1) };
+    return { from: 'antd', name: componentName.slice(1) }
   }
-  return null;
+  return null
 }

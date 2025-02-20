@@ -19,11 +19,23 @@ export default defineConfig((config) => {
     define: {
       BUILD_TIME: JSON.stringify(buildTime),
     },
+    // 插件配置
     plugins: setupVitePlugins(viteEnv, buildTime),
+    // 路径别名
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url)),
         '~': fileURLToPath(new URL('./', import.meta.url)),
+      },
+    },
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            vendor1: ['react', 'react-dom', 'react-router', 'react-error-boundary', 'ahooks', 'axios', 'dayjs', 'nprogress', 'zustand', 'zustand-x'],
+            vendor2: ['antd'],
+          },
+        },
       },
     },
     server: {
