@@ -1,5 +1,5 @@
-const Login = () => {
-    return <div>登录页</div>
+function Login() {
+  return <div>登录页</div>
 }
 
 export default Login

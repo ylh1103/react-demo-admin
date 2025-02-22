@@ -1,8 +1,7 @@
 import AutoImport from 'unplugin-auto-import/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 
-export function setupAutoImport(viteEnv: Env.ImportMeta) {
-  const { VITE_ICON_LOCAL_PREFIX, VITE_ICON_PREFIX } = viteEnv
+export function setupAutoImport() {
   return AutoImport({
     // 自动导出src下hooks和components文件
     dirs: ['src/hooks/**', 'src/components/**'],
@@ -18,9 +17,11 @@ export function setupAutoImport(viteEnv: Env.ImportMeta) {
     // 自定义解析器，自动导入使用的antd和iconify组件
     resolvers: [
       IconsResolver({
-        prefix: VITE_ICON_PREFIX,
-        customCollections: [VITE_ICON_LOCAL_PREFIX],
-        componentPrefix: VITE_ICON_PREFIX,
+        // 自动导入图标前缀
+        prefix: 'icon',
+        componentPrefix: 'icon',
+        // 本地图标集合名
+        customCollections: ['local'],
         extension: 'tsx',
       }),
       autoImportAntd,

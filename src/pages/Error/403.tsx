@@ -1,7 +1,7 @@
-import ErrorBase from "./ErrorBase";
+import ErrorBase from './ErrorBase'
 
 const Page403: React.FC = () => {
-  return <ErrorBase icon={<IconLocalNoPermission />} />;
-};
+  return <ErrorBase icon={<IconLocalNoAccess />} />
+}
 
-export default Page403;
+export default Page403

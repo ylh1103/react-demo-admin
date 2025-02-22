@@ -10,7 +10,7 @@ export default defineConfig((config) => {
   // process.cwd() 是一个方法，用于获取 Node.js 进程的当前工作目录
   // 设置第三个参数为 '' 来加载所有环境变量，而不管是否有 `VITE_` 前缀
   // 默认情况下只有前缀为 VITE_ 会被加载
-  const viteEnv = loadEnv(config.mode, process.cwd()) as unknown as Env.ImportMeta
+  const viteEnv = loadEnv(config.command, process.cwd()) as unknown as Env.ImportMeta
   const buildTime = getBuildTime()
   return {
     // 开发或生产环境服务的公共基础路径，默认/
@@ -32,7 +32,7 @@ export default defineConfig((config) => {
       rollupOptions: {
         output: {
           manualChunks: {
-            vendor1: ['react', 'react-dom', 'react-router', 'react-error-boundary', 'ahooks', 'axios', 'dayjs', 'nprogress', 'zustand', 'zustand-x'],
+            vendor1: ['react-router', 'react-error-boundary', 'ahooks', 'axios', 'dayjs', 'nprogress', 'zustand', 'zustand-x', 'lodash-es'],
             vendor2: ['antd'],
           },
         },

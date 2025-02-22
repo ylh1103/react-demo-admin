@@ -5,3 +5,8 @@
 html, body, #root {
   height: 100%;
 }
+
+@theme {
+  --color-primary: #1677ff;
+  --color-primary-50: #e6f4ff;
+}

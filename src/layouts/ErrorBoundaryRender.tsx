@@ -1,23 +1,24 @@
-import { useRouteError } from "react-router";
 import type { FallbackProps } from 'react-error-boundary'
+import { useRouteError } from 'react-router'
 
-const { Text } = ATypography;
+const { Text } = ATypography
 
-const useRouterCheck = () => {
+function useRouterCheck() {
   try {
     // 尝试使用一个简单的 Hook
 
-    const error = useRouteError() as Error;
-    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const error = useRouteError() as Error
     const nav = useNavigate()
 
     const update = () => {
       nav(0)
     }
 
-    return { update, error }; // 如果没有抛出异常，则支持 Hook
-  } catch (error) {
-    return false; // 如果抛出异常，则不支持 Hook
+    return { update, error } // 如果没有抛出异常，则支持 Hook
+  }
+  // eslint-disable-next-line unused-imports/no-unused-vars
+  catch (error) {
+    return false // 如果抛出异常，则不支持 Hook
   }
 }
 
@@ -27,12 +28,12 @@ const ErrorBoundaryRender: FC<Partial<FallbackProps>> = ({ error, resetErrorBoun
   return (
     <div className="size-full min-h-520px overflow-hidden">
       <div className="flex text-[400px]">
-        <IconLocalError />
+        <IconLocalFailure />
       </div>
       <Text code>{hook ? hook.error.message : error.message}</Text>
-      <AButton type='primary' onClick={hook ? hook.update : resetErrorBoundary} >重试</AButton>
+      <AButton type="primary" onClick={hook ? hook.update : resetErrorBoundary}>重试</AButton>
     </div>
-  );
-};
+  )
+}
 
-export default ErrorBoundaryRender;
+export default ErrorBoundaryRender

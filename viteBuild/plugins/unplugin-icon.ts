@@ -8,9 +8,7 @@ import Icons from 'unplugin-icons/vite'
 // 使用iconify图标库，并且自定义src/assets/svg-icon文件夹下svg图标
 // 使用约定~icons/{collection}/{icon}导入图标名称(import IconAccountBox from '~icons/mdi/account-box')，并直接将其用作组件
 // 也可以自动导入，本项目已在auto-import文件配置自动导入
-export function setupUnPluginIcon(viteEnv: Env.ImportMeta) {
-  const { VITE_ICON_LOCAL_PREFIX } = viteEnv
-
+export function setupUnPluginIcon() {
   const localIconPath = path.join(process.cwd(), 'src/assets/svg-icon')
 
   const plugins: PluginOption[] = [
@@ -20,8 +18,9 @@ export function setupUnPluginIcon(viteEnv: Env.ImportMeta) {
       // 将src/assets/svg-icon自定义图标集local
       // import Icon from '~icons/local/svgName'
       customCollections: {
-        [VITE_ICON_LOCAL_PREFIX]: FileSystemIconLoader(localIconPath, svg =>
-          svg.replace(/^<svg\s/, '<svg fill="currentColor" width="1em" height="1em" ')),
+        local: FileSystemIconLoader(localIconPath, (svg) => {
+          return svg.replace(/^<svg\s/, '<svg fill="currentColor" width="1em" height="1em" ')
+        }),
       },
       iconCustomizer: (_, __, props) => {
         props.width = '1em'

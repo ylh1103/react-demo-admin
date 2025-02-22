@@ -115,6 +115,25 @@
     "IconLocalServiceError": true,
     "ATypography": true,
     "IconLocalError": true,
-    "AConfigProvider": true
+    "AConfigProvider": true,
+    "IconLocal404": true,
+    "IconLocalConstructionDark": true,
+    "IconLocalConstruction": true,
+    "AFlex": true,
+    "IconLocalFailure": true,
+    "IconLocalFailureDark": true,
+    "IconLocalIdle": true,
+    "IconLocalIdleDark": true,
+    "IconLocalNoAccess": true,
+    "IconLocalNoAccessDark": true,
+    "IconLocalNoContent": true,
+    "IconLocalNoContentDark": true,
+    "IconLocalNoResult": true,
+    "IconLocalNoResultDark": true,
+    "IconLocalNotFoundDark": true,
+    "IconLocalSuccess": true,
+    "IconLocalSuccessDark": true,
+    "ACol": true,
+    "ARow": true
   }
 }

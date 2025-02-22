@@ -4,7 +4,7 @@ interface AntdConfigProps {
 
 const AntdConfig: FC<AntdConfigProps> = ({ children }) => {
   return (
-    <AConfigProvider theme={{ cssVar: true }}>
+    <AConfigProvider theme={{ cssVar: { prefix: 'moka' }, hashed: false }}>
       {children}
     </AConfigProvider>
   )
