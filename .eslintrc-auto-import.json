@@ -136,6 +136,18 @@
     "ACol": true,
     "ARow": true,
     "ALayout": true,
-    "AMenu": true
+    "AMenu": true,
+    "IconCarbonOpenPanelLeft": true,
+    "IconLucidePanelLeft": true,
+    "IconMynauiPanelLeft": true,
+    "IconFluentPanelLeft48Regular": true,
+    "IconCarbonPanelLeft": true,
+    "AAvatar": true,
+    "IconLucideChevronsUpDown": true,
+    "AInput": true,
+    "IconLucideSearch": true,
+    "IconLucideOrbit": true,
+    "IconLucideSettings": true,
+    "IconCarbonSettings": true
   }
 }

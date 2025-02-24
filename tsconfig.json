@@ -57,6 +57,7 @@
     "forceConsistentCasingInFileNames": true,
 
     "isolatedModules": true,
+    "skipLibCheck": true,
 
     // 在 JavaScript 中，可以 import 模块而无需实际从中导入任何值
     // import "some-module";
