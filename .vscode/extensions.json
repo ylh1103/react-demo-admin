@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "antfu.unocss",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "formulahendry.auto-close-tag",
+    "formulahendry.auto-complete-tag",
+    "formulahendry.auto-rename-tag",
+    "mikestead.dotenv",
+    "naumovs.color-highlight",
+    "pkief.material-icon-theme"
+  ]
+}

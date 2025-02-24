@@ -6,20 +6,19 @@ import process from 'node:process'
 import boxen from 'boxen'
 import { vice } from 'gradient-string'
 
-const boxenOptions: BoxenOptions = {
-  borderColor: '#646cff',
-  borderStyle: 'round',
-  padding: 0.5,
-  title: '您好! 欢迎使用 MokaInsign',
-  titleAlignment: 'center',
-}
-
 // 在开发终端打印项目信息
-export function setupProjectInfo(): Plugin {
+export function setupProjectInfo(viteEnv: Env.ImportMeta): Plugin {
   const { nodeMsg, pnpmMsg } = getEnvInfo()
   const welcomeMessage = vice.multiline(
     `🔔 本项目技术栈：Vite 6 + React 19 + React Router 7 + Zustand 5 + TypeScript 5 + UnoCSS 66 + Ant Design 5\n🔔 开发环境推荐：node>=20, pnpm>=10\n--------------------------------------------\n${nodeMsg}\n${pnpmMsg}`,
   )
+  const boxenOptions: BoxenOptions = {
+    borderColor: '#646cff',
+    borderStyle: 'round',
+    padding: 0.5,
+    title: `您好! 欢迎使用 ${viteEnv.VITE_APP_TITLE}`,
+    titleAlignment: 'center',
+  }
   return {
     buildStart() {
       console.log(boxen(welcomeMessage, boxenOptions))

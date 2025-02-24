@@ -9,13 +9,13 @@ import { setupProjectInfo } from './info'
 import { setupUnocss } from './unocss'
 import { setupUnPluginIcon } from './unplugin-icon'
 
-export function setupVitePlugins(_: Env.ImportMeta, buildTime: string) {
+export function setupVitePlugins(viteEnv: Env.ImportMeta, buildTime: string) {
   const plugins: PluginOption = [
     react(),
     removeConsole(),
     setupUnocss(),
     setupHtmlPlugin(buildTime),
-    setupProjectInfo(),
+    setupProjectInfo(viteEnv),
     setupAutoImport(),
     setupUnPluginIcon(),
     compression({ algorithm: 'brotliCompress' }),
