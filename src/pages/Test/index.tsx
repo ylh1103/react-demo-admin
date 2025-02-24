@@ -10,7 +10,7 @@ function Test() {
   const decrement = useMyStore(state => state.decrement)
   const changeNest = useMyStore(state => state.changeNest)
   return (
-    <>
+    <ALayout>
 
       <Flex gap={20} className="h-full flex justify-center items-center">
         <div>
@@ -74,7 +74,7 @@ function Test() {
           <IconLocalSuccess className="text-[200px]" />
         </ACol>
       </ARow>
-    </>
+    </ALayout>
   )
 }
 

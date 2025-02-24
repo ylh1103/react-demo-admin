@@ -10,6 +10,8 @@ declare global {
   const ACol: typeof import('antd')['Col']
   const AConfigProvider: typeof import('antd')['ConfigProvider']
   const AFlex: typeof import('antd')['Flex']
+  const ALayout: typeof import('antd')['Layout']
+  const AMenu: typeof import('antd')['Menu']
   const ARow: typeof import('antd')['Row']
   const ATypography: typeof import('antd')['Typography']
   const IconLocal404: typeof import('~icons/local/404.tsx')['default']

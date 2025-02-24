@@ -18,7 +18,7 @@ const boxenOptions: BoxenOptions = {
 export function setupProjectInfo(): Plugin {
   const { nodeMsg, pnpmMsg } = getEnvInfo()
   const welcomeMessage = vice.multiline(
-    `🔔 本项目技术栈：Vite 6 + React 19 + React Router 7 + Zustand 5 + TypeScript 5 + Tailwindcss 4 + Ant Design 5\n🔔 开发环境推荐：node>=20, pnpm>=10\n--------------------------------------------\n${nodeMsg}\n${pnpmMsg}`,
+    `🔔 本项目技术栈：Vite 6 + React 19 + React Router 7 + Zustand 5 + TypeScript 5 + UnoCSS 66 + Ant Design 5\n🔔 开发环境推荐：node>=20, pnpm>=10\n--------------------------------------------\n${nodeMsg}\n${pnpmMsg}`,
   )
   return {
     buildStart() {

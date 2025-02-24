@@ -134,6 +134,8 @@
     "IconLocalSuccess": true,
     "IconLocalSuccessDark": true,
     "ACol": true,
-    "ARow": true
+    "ARow": true,
+    "ALayout": true,
+    "AMenu": true
   }
 }

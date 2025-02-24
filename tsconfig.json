@@ -1,8 +1,68 @@
 {
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ],
-  "files": [],
-  "types": ["vite/client", "unplugin-icons/types/react"]
+  "compilerOptions": {
+    // target 设置会更改哪些 JS 功能被降级以及哪些功能保持不变
+    // 现代浏览器支持所有 ES6 功能，因此 ES6 是一个不错的选择
+    "target": "ES2020",
+
+    // 控制如何在 JavaScript 文件中触发 JSX 构造。这只会影响从 .tsx 文件中启动的 JS 文件的输出
+    // react-jsx：触发 .js 文件，其中 JSX 更改为针对生产优化的 _jsx 调用
+    "jsx": "react-jsx",
+
+    // TypeScript 包含一组用于内置 JS API（如 Math）的默认类型定义，以及用于浏览器环境中发现的事物的类型定义（如 document）。TypeScript 还包括与你指定的 target 匹配的较新 JS 功能的 API；例如，如果 target 是 ES6 或更新版本，则 Map 的定义可用
+    // 你的程序不在浏览器中运行，因此你不需要 "dom" 类型定义
+    "lib": ["ESNext", "DOM"],
+
+    "useDefineForClassFields": true,
+
+    // 基础路径
+    "baseUrl": ".",
+
+    // 设置程序的模块系统
+    "module": "ESNext",
+
+    // 指定模块解析策略
+    "moduleResolution": "bundler",
+
+    // 路径别名
+    "paths": {
+      "@/*": ["./src/*"],
+      "~/*": ["./*"]
+    },
+
+    "resolveJsonModule": true,
+
+    "types": ["vite/client", "node", "unplugin-icons/types/react"],
+
+    // 允许 TypeScript 文件使用 TypeScript 特定的扩展（如 .ts、.mts 或 .tsx）相互导入
+    // 仅当启用 --noEmit 或 --emitDeclarationOnly 时才允许使用此标志，因为这些导入路径在 JavaScript 输出文件中运行时无法解析。这里的期望是你的解析器（例如你的打包器、运行时或其他工具）将使 .ts 文件之间的这些导入工作
+    "allowImportingTsExtensions": true,
+
+    // strict 标志启用了广泛的类型检查行为，从而更有力地保证了程序的正确性。打开此功能相当于启用所有严格模式系列选项
+    // 然后，你可以根据需要关闭单独的严格模式系列检查
+    "strict": true,
+
+    "strictNullChecks": true,
+
+    // 报告未使用的局部变量的错误
+    "noUnusedLocals": true,
+
+    "noEmit": true,
+
+    "allowSyntheticDefaultImports": true,
+
+    // 隔离模块
+    // 设置 isolatedModules 标志会告诉 TypeScript，如果你编写的某些代码无法由单文件转译过程正确解释，则它会触发警告
+    "esModuleInterop": true,
+
+    "forceConsistentCasingInFileNames": true,
+
+    "isolatedModules": true,
+
+    // 在 JavaScript 中，可以 import 模块而无需实际从中导入任何值
+    // import "some-module";
+    // import "./button-component.css";
+    "noUncheckedSideEffectImports": true
+  },
+  "include": ["./**/*.ts", "./**/*.tsx"],
+  "exclude": ["node_modules", "dist"]
 }
