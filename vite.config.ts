@@ -1,6 +1,7 @@
 import process from 'node:process'
 import { fileURLToPath, URL } from 'node:url'
 import { defineConfig, loadEnv } from 'vite'
+import { build } from './viteBuild/build'
 import { getBuildTime } from './viteBuild/config'
 import { setupVitePlugins } from './viteBuild/plugins'
 
@@ -15,12 +16,6 @@ export default defineConfig((config) => {
   return {
     // 开发或生产环境服务的公共基础路径，默认/
     base: viteEnv.VITE_BASE_URL,
-    // 定义全局常量替换方式。其中每项在开发环境下会被定义在全局，而在构建时被静态替换
-    define: {
-      BUILD_TIME: JSON.stringify(buildTime),
-    },
-    // 插件配置
-    plugins: setupVitePlugins(viteEnv, buildTime),
     // 路径别名
     resolve: {
       alias: {
@@ -28,16 +23,13 @@ export default defineConfig((config) => {
         '~': fileURLToPath(new URL('./', import.meta.url)),
       },
     },
-    build: {
-      rollupOptions: {
-        output: {
-          manualChunks: {
-            vendor1: ['react-router', 'react-error-boundary', 'ahooks', 'axios', 'dayjs', 'nprogress', 'zustand', 'zustand-x', 'lodash-es'],
-            vendor2: ['antd'],
-          },
-        },
-      },
+    // 定义全局常量替换方式。其中每项在开发环境下会被定义在全局，而在构建时被静态替换
+    define: {
+      BUILD_TIME: JSON.stringify(buildTime),
     },
+    // 插件配置
+    plugins: setupVitePlugins(viteEnv, buildTime),
+    build,
     server: {
       host: '0.0.0.0',
       port: 8080,

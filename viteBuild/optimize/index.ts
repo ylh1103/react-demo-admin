@@ -1,3 +1,3 @@
-const include = ['ahooks', 'echarts', 'lodash'];
+const include = ['ahooks', 'echarts', 'lodash-es']
 
-export { include };
+export { include }
