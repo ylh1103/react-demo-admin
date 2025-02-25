@@ -1,10 +1,11 @@
+import { RouterProvider } from 'react-router/dom'
 import AntdConfig from './layouts/AntdConfig'
-import WorkSpace from './pages/WorkSpace/indedx'
+import router from './router'
 
 function App() {
   return (
     <AntdConfig>
-      <WorkSpace />
+      <RouterProvider router={router} />
     </AntdConfig>
   )
 }

@@ -1,5 +1,6 @@
+import type { ComponentType, FC } from 'react'
 import { Skeleton } from 'antd'
-import { ComponentType, FC, lazy, Suspense } from 'react'
+import { lazy, Suspense } from 'react'
 
 interface LazyImportProps {
   callback: () => Promise<{ default: ComponentType }>
@@ -9,7 +10,7 @@ interface LazyImportProps {
 export const LazyImport: FC<LazyImportProps> = ({ callback }) => {
   const Component = lazy(callback)
   return (
-    <Suspense fallback={<Skeleton style={{padding: 20}} active />}>
+    <Suspense fallback={<Skeleton style={{ padding: 20 }} active />}>
       <Component />
     </Suspense>
   )
