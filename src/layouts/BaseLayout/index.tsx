@@ -66,8 +66,10 @@ const BaseLayout: FC = () => {
             onClick={() => setCollapsed(!collapsed)}
           />
         </Header>
-        <Content className="mx-auto p-8">
-          <Outlet />
+        <Content className="mx-auto w-full max-w-screen-xl py-8">
+          <div className="h-full px-5 md:px-10">
+            <Outlet />
+          </div>
         </Content>
       </ALayout>
     </ALayout>

@@ -1,4 +1,5 @@
-import { defineConfig, presetWind3 } from 'unocss'
+import { FileSystemIconLoader } from '@iconify/utils/lib/loader/node-loaders'
+import { defineConfig, presetIcons, presetWind3 } from 'unocss'
 
 export default defineConfig({
   content: {
@@ -8,23 +9,41 @@ export default defineConfig({
     },
   },
   // 使用默认预设
-  presets: [presetWind3()],
+  presets: [
+    presetWind3(),
+    presetIcons({
+      collections: {
+        // @iconify-json/lucide图标集合，使用动态导入来提供集合，这样它们将作为异步块进行打包，并在需要时加载
+        lucide: () => import('@iconify-json/lucide/icons.json').then(i => i.default),
+        // 本地src/assets/svg-icon下的图标集合
+        local: FileSystemIconLoader('./assets/svg-icon', svg =>
+          svg.replace(/^<svg\s/, '<svg width="1em" height="1em" ')),
+      },
+    }),
+  ],
   theme: {
     colors: {
       colorPrimary: '#1677ff',
       colorSplit: 'rgba(8, 28, 62, 0.15)',
       colorBgContainer: '#fff',
+      colorTextDescription: 'rgba(0, 0, 0, 0.45)',
+      colorBorderSecondary: '#f0f0f0',
     },
   },
   // 简写
   shortcuts: [
     {
+      'border-normal': 'border border-solid border-colorSplit'
+    },
+    {
       'flex-1-hidden': 'flex-1 overflow-hidden',
       'flex-center': 'flex justify-center items-center',
       'flex-col': 'flex flex-col',
       'flex-col-center': 'flex-center flex-col',
+      'flex-col-between': 'flex-col justify-between',
       'flex-col-stretch': 'flex-col items-stretch',
       'flex-x-center': 'flex justify-center',
+      'flex-x-between': 'flex justify-between',
       'flex-y-center': 'flex items-center',
       'i-flex-center': 'inline-flex justify-center items-center',
       'i-flex-col': 'flex-col inline-flex',

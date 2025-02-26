@@ -54,9 +54,15 @@ importers:
       '@eslint-react/eslint-plugin':
         specifier: ^1.28.0
         version: 1.28.0(eslint@9.20.1(jiti@2.4.2))(ts-api-utils@2.0.1(typescript@5.7.3))(typescript@5.7.3)
+      '@iconify-json/lucide':
+        specifier: ^1.2.26
+        version: 1.2.26
       '@iconify/json':
         specifier: ^2.2.307
         version: 2.2.307
+      '@iconify/utils':
+        specifier: ^2.3.0
+        version: 2.3.0
       '@prettier/plugin-xml':
         specifier: ^3.4.1
         version: 3.4.1(prettier@3.5.2)
@@ -605,6 +611,9 @@ packages:
   '@humanwhocodes/retry@0.4.1':
     resolution: {integrity: sha512-c7hNEllBlenFTHBky65mhq8WD2kbN9Q6gk0bTk8lSBvc554jpXSkST1iePudpt7+A/AQvuHs9EMqjHDXMY1lrA==}
     engines: {node: '>=18.18'}
+
+  '@iconify-json/lucide@1.2.26':
+    resolution: {integrity: sha512-arD/8mK0lRxFY2LgLf345NhWVWiOtV8sOxJuLnq4QRz3frMiOwVwGxEgp5Xe/bRGzxO2CxxCBok0bPRpCkYZQQ==}
 
   '@iconify/json@2.2.307':
     resolution: {integrity: sha512-540d6XxtPwSVdWf2fM0JTq9j7DYPV7SLpjxPtU5i/AXPTltqZVk0hjVCt5yiFW5fYi0/eiCM44tSDJZJXgKp/w==}
@@ -3950,6 +3959,10 @@ snapshots:
   '@humanwhocodes/retry@0.3.1': {}
 
   '@humanwhocodes/retry@0.4.1': {}
+
+  '@iconify-json/lucide@1.2.26':
+    dependencies:
+      '@iconify/types': 2.0.0
 
   '@iconify/json@2.2.307':
     dependencies:

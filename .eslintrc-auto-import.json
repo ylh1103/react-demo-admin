@@ -149,6 +149,8 @@
     "IconLucideOrbit": true,
     "IconLucideSettings": true,
     "IconCarbonSettings": true,
-    "AApp": true
+    "AApp": true,
+    "ACard": true,
+    "ADropdown": true
   }
 }
