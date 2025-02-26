@@ -9,7 +9,7 @@ const Guider: FC = () => {
           <a target="_blank" href="https://docs.swanlab.cn/zh/guide_cloud/integration/integration-wandb.html">迁移指南</a>。
         </p> */}
       </div>
-      <ACard className="size-full">
+      <ACard className="w-full">
         <div className="gap-2 text-lg flex-y-center font-600">
           <IconDeviconPython className="text-2xl" />
           <span>Python</span>
