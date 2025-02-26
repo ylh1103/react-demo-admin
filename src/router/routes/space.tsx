@@ -8,7 +8,7 @@ export const spaceRoutes: RouteObject[] = [
   },
   {
     path: '/setting',
-    element: <LazyImport callback={() => import('@/pages/WorkSpace')} />,
+    element: <LazyImport callback={() => import('@/pages/Setting')} />,
     handle: { title: '设置' },
   },
 ]

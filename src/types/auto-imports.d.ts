@@ -22,6 +22,7 @@ declare global {
   const IconCarbonOpenPanelLeft: typeof import('~icons/carbon/open-panel-left.tsx')['default']
   const IconCarbonPanelLeft: typeof import('~icons/carbon/panel-left.tsx')['default']
   const IconCarbonSettings: typeof import('~icons/carbon/settings.tsx')['default']
+  const IconDeviconPython: typeof import('~icons/devicon/python.tsx')['default']
   const IconFluentPanelLeft48Regular: typeof import('~icons/fluent/panel-left48-regular.tsx')['default']
   const IconLocal404: typeof import('~icons/local/404.tsx')['default']
   const IconLocalConstruction: typeof import('~icons/local/construction.tsx')['default']

@@ -151,6 +151,7 @@
     "IconCarbonSettings": true,
     "AApp": true,
     "ACard": true,
-    "ADropdown": true
+    "ADropdown": true,
+    "IconDeviconPython": true
   }
 }
