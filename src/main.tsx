@@ -15,10 +15,10 @@ function setupApp() {
   // 检测系统版本更新
   setupAppVersionNotification()
 
-  const container = document.getElementById('root')
-  if (!container)
+  const rootDom = document.getElementById('root')
+  if (!rootDom)
     return
-  const root = createRoot(container)
+  const root = createRoot(rootDom)
   root.render(
     // eslint-disable-next-line ts/ban-ts-comment
     // @ts-expect-error

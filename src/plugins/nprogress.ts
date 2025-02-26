@@ -1,4 +1,5 @@
 import NProgress from 'nprogress'
+// import 'nprogress/nprogress.css'
 
 // 配置nprogress
 export function setupNProgress() {

@@ -1,8 +1,14 @@
 /* 初始化基础样式 */
 @import url('./normalize.css');
+@import url('./nprogress.css');
 
 html,
 body,
 #root {
   height: 100%;
+}
+
+:root {
+  --mj-color-primary: #1677ff;
+  --mj-color-primary-bg-hover: #bae0ff;
 }

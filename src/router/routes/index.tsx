@@ -1,8 +1,18 @@
 import type { RouteObject } from 'react-router'
+import { spaceRoutes } from './space'
 
 export const routes: RouteObject[] = [
   {
     path: '/',
-    element: <LazyImport callback={() => import('@/pages/WorkSpace')} />,
+    element: <LazyImport callback={() => import('@/layouts/BaseLayout')} />,
+    children: spaceRoutes,
+  },
+  {
+    path: '/403',
+    element: <LazyImport callback={() => import('@/pages/Error/403')} />,
+  },
+  {
+    path: '*',
+    element: <LazyImport callback={() => import('@/pages/Error/404')} />,
   },
 ]
