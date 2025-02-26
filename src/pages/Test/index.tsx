@@ -12,7 +12,7 @@ function Test() {
   return (
     <ALayout>
 
-      <Flex gap={20} className="h-full flex justify-center items-center">
+      <Flex gap={20} className="h-full flex items-center justify-center">
         <div>
           { count }
           111

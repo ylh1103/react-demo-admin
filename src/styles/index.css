@@ -1,8 +1,8 @@
 /* 初始化基础样式 */
 @import url('./normalize.css');
 
-
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
 }
-

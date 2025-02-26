@@ -8,13 +8,8 @@ function useRouterCheck() {
     // 尝试使用一个简单的 Hook
 
     const error = useRouteError() as Error
-    const nav = useNavigate()
 
-    const update = () => {
-      nav(0)
-    }
-
-    return { update, error } // 如果没有抛出异常，则支持 Hook
+    return { error } // 如果没有抛出异常，则支持 Hook
   }
   // eslint-disable-next-line unused-imports/no-unused-vars
   catch (error) {
@@ -31,7 +26,7 @@ const ErrorBoundaryRender: FC<Partial<FallbackProps>> = ({ error, resetErrorBoun
         <IconLocalFailure />
       </div>
       <Text code>{hook ? hook.error.message : error.message}</Text>
-      <AButton type="primary" onClick={hook ? hook.update : resetErrorBoundary}>重试</AButton>
+      <AButton type="primary" onClick={resetErrorBoundary}>重试</AButton>
     </div>
   )
 }

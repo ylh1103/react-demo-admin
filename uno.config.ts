@@ -11,7 +11,9 @@ export default defineConfig({
   presets: [presetWind3()],
   theme: {
     colors: {
-      primary: '#1677ff',
+      colorPrimary: '#1677ff',
+      colorSplit: 'rgba(8, 28, 62, 0.15)',
+      colorBgContainer: '#fff',
     },
   },
 })

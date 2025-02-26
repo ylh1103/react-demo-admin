@@ -4,7 +4,7 @@ interface ErrorBaseProps {
 
 const ErrorBase: React.FC<ErrorBaseProps> = ({ icon }) => {
   return (
-    <div className="size-full flex flex-col justify-center items-center gap-6">
+    <div className="size-full flex flex-col items-center justify-center gap-6">
       <div className="text-[400px] text-blue-400">
         {icon}
       </div>

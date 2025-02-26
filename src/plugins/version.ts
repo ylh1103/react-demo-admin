@@ -1,25 +1,28 @@
-import { Button } from 'antd';
-import { createElement } from 'react';
+import { Button } from 'antd'
+import { createElement } from 'react'
 
 // 检测系统版本更新
-export const setupAppVersionNotification = () => {
-  const canAutoUpdateApp = import.meta.env.VITE_AUTOMATICALLY_DETECT_UPDATE === 'Y';
+export function setupAppVersionNotification() {
+  const canAutoUpdateApp = import.meta.env.VITE_AUTOMATICALLY_DETECT_UPDATE === 'Y'
 
-  if (!canAutoUpdateApp) return;
+  if (!canAutoUpdateApp)
+    return
 
-  let isShow = false;
+  let isShow = false
 
   // 监听浏览器页签切换
   document.addEventListener('visibilitychange', async () => {
-    const preConditions = [!isShow, document.visibilityState === 'visible', !import.meta.env.DEV];
+    const preConditions = [!isShow, document.visibilityState === 'visible', !import.meta.env.DEV]
 
-    if (!preConditions.every(Boolean)) return;
+    if (!preConditions.every(Boolean))
+      return
 
-    const buildTime = await getHtmlBuildTime();
+    const buildTime = await getHtmlBuildTime()
 
-    if (buildTime === BUILD_TIME) return;
+    if (buildTime === BUILD_TIME)
+      return
 
-    isShow = true;
+    isShow = true
 
     window.$notification?.open({
       btn: (() => {
@@ -33,47 +36,47 @@ export const setupAppVersionNotification = () => {
               {
                 key: 'cancel',
                 onClick() {
-                  window.$notification?.destroy();
-                }
+                  window.$notification?.destroy()
+                },
               },
-              '稍后再说'
+              '稍后再说',
             ),
             createElement(
               Button,
               {
                 key: 'ok',
                 onClick() {
-                  location.reload();
+                  location.reload()
                 },
-                type: 'primary'
+                type: 'primary',
               },
-              '立即刷新'
-            )
-          ]
-        );
+              '立即刷新',
+            ),
+          ],
+        )
       })(),
       description: '检测到系统有新版本发布，是否立即刷新页面？',
       message: '系统版本更新通知',
       onClose() {
-        isShow = false;
-      }
-    });
-  });
+        isShow = false
+      },
+    })
+  })
 }
 
 // 获取当前静态资源构建时间
-const getHtmlBuildTime = async () => {
+async function getHtmlBuildTime() {
   const res = await fetch(`/index.html?time=${Date.now()}`, {
     headers: {
-      'Cache-Control': 'no-cache'
-    }
-  });
+      'Cache-Control': 'no-cache',
+    },
+  })
 
-  const html = await res.text();
+  const html = await res.text()
 
-  const match = html.match(/<meta name="buildTime" content="(.*)">/);
+  const match = html.match(/<meta name="buildTime" content="(.*)">/)
 
-  const buildTime = match?.[1] || '';
+  const buildTime = match?.[1] || ''
 
-  return buildTime;
+  return buildTime
 }

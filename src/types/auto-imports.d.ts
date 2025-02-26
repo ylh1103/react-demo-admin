@@ -6,6 +6,7 @@
 // biome-ignore lint: disable
 export {}
 declare global {
+  const AApp: typeof import('antd')['App']
   const AAvatar: typeof import('antd')['Avatar']
   const AButton: typeof import('antd')['Button']
   const ACol: typeof import('antd')['Col']

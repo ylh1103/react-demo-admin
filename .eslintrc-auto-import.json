@@ -148,6 +148,7 @@
     "IconLucideSearch": true,
     "IconLucideOrbit": true,
     "IconLucideSettings": true,
-    "IconCarbonSettings": true
+    "IconCarbonSettings": true,
+    "AApp": true
   }
 }
