@@ -38,6 +38,7 @@ export default defineConfig({
     {
       'flex-1-hidden': 'flex-1 overflow-hidden',
       'flex-center': 'flex justify-center items-center',
+      'flex-between': 'flex justify-between items-center',
       'flex-col': 'flex flex-col',
       'flex-col-center': 'flex-center flex-col',
       'flex-col-between': 'flex-col justify-between',
