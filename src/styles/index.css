@@ -17,3 +17,19 @@ body,
   --mj-color-primary: #1677ff;
   --mj-color-primary-bg-hover: #bae0ff;
 }
+
+/* 设置滚动条的宽度和高度 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+/* 设置滚动条滑块的颜色和圆角 */
+::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+}
+/* 设置滚动条轨道的颜色和圆角 */
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
