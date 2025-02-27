@@ -8,7 +8,7 @@ export function setupAutoImport() {
     // 生成的类型声明文件
     dts: 'src/types/auto-imports.d.ts',
     // 自动导出的库
-    imports: ['react', 'react-router', 'ahooks', { from: 'react', imports: ['FC'], type: true }],
+    imports: ['react', 'react-router-dom', 'ahooks', { from: 'react', imports: ['FC'], type: true }],
     // 导出文件类型
     include: [/\.[tj]sx?$/],
     // 搭配eslint使用，会生成.eslintrc-auto-import.json文件

@@ -1,4 +1,4 @@
-import { RouterProvider } from 'react-router/dom'
+import { RouterProvider } from 'react-router-dom'
 import AntdConfig from './layouts/AntdConfig'
 import router from './router'
 

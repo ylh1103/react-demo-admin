@@ -1,13 +1,13 @@
-import type { RouteObject } from 'react-router'
+import type { RouteObject } from 'react-router-dom'
 
 export const spaceRoutes: RouteObject[] = [
   {
-    path: '/space',
+    path: 'space',
     element: <LazyImport callback={() => import('@/pages/WorkSpace')} />,
     handle: { title: '工作区' },
   },
   {
-    path: '/setting',
+    path: 'setting',
     element: <LazyImport callback={() => import('@/pages/Setting')} />,
     handle: { title: '设置' },
   },

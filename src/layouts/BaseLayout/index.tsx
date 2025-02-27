@@ -1,4 +1,5 @@
-import { Outlet } from 'react-router'
+import { Link, Outlet } from "react-router-dom"
+
 
 const { Header, Sider, Content } = ALayout
 
@@ -68,6 +69,8 @@ const BaseLayout: FC = () => {
         </Header>
         <Content className="mx-auto w-full max-w-screen-xl py-8">
           <div className="h-full px-5 md:px-10">
+            <Link to='/setting'>工作区</Link>
+            <AButton>设置</AButton>
             <Outlet />
           </div>
         </Content>

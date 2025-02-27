@@ -1,5 +1,5 @@
 import type { FallbackProps } from 'react-error-boundary'
-import { useRouteError } from 'react-router'
+import { useRouteError } from 'react-router-dom'
 
 const { Text } = ATypography
 

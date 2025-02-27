@@ -10,7 +10,7 @@ import { vice } from 'gradient-string'
 export function setupProjectInfo(viteEnv: Env.ImportMeta): Plugin {
   const { nodeMsg, pnpmMsg } = getEnvInfo()
   const welcomeMessage = vice.multiline(
-    `🔔 本项目技术栈：Vite 6 + React 19 + React Router 7 + Zustand 5 + TypeScript 5 + UnoCSS 66 + Ant Design 5\n🔔 开发环境推荐：node>=20, pnpm>=10\n--------------------------------------------\n${nodeMsg}\n${pnpmMsg}`,
+    `🔔 本项目技术栈：Vite 6 + React 19 + React Router Dom 6 + Zustand 5 + TypeScript 5 + UnoCSS 66 + Ant Design 5\n🔔 开发环境推荐：node>=20, pnpm>=10\n--------------------------------------------\n${nodeMsg}\n${pnpmMsg}`,
   )
   const boxenOptions: BoxenOptions = {
     borderColor: '#646cff',
