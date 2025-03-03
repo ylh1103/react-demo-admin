@@ -1,3 +1,5 @@
+import styles from './index.module.less'
+
 const { Sider } = ALayout
 
 interface SlidebarProps {
@@ -8,13 +10,13 @@ const menuList = [
   {
     key: '/space',
     label: '工作区',
-    icon: <IconLucideOrbit className="!text-lg" />,
+    icon: <IconLucideOrbit />,
     className: 'text-base',
   },
   {
     key: '/setting',
     label: '设置',
-    icon: <IconCarbonSettings className="!text-lg" />,
+    icon: <IconCarbonSettings />,
     className: 'text-base',
   },
 ]
@@ -28,32 +30,35 @@ const Slidebar: FC<SlidebarProps> = ({ collapsed }) => {
   return (
     <Sider
       data-collapsible={collapsed}
-      collapsedWidth={52}
       width={255}
+      collapsedWidth={52}
       trigger={null}
       collapsible
       collapsed={collapsed}
       className="group hidden border-0 border-r border-colorSplit border-solid bg-colorBgContainer md:block"
     >
-      <div className="flex-col gap-2 p-1">
-        <AButton size="large" type="text" className="h-12 flex-y-center gap-2 p-2 text-base" icon={<AAvatar shape="square" size={40} className="bg-[#A9F76B]" />}>
+      <AButton size="large" type="text" block style={{ width: 'calc(100% - 8px)' }} className="mx-1 my-2 h-12 flex-center gap-2 border-none p-2 text-base transition-all transition-duration-300 group-data-[collapsible=true]:p-0">
+        <AAvatar shape="square" size={40} className="inline-block bg-colorPrimary flex-none" />
+        <div style={{ visibility: collapsed ? 'hidden' : 'visible'}} className="flex-y-center gap-2 flex-1-hidden transition-all transition-duration-300">
           <div className="grid flex-1 text-left leading-tight">
             <span className="truncate text-base font-semibold">LL57</span>
-            <span className="truncate text-sm text-coolgray -mt-1">账务系统空间</span>
+            <span className="visible truncate text-sm text-coolgray -mt-1">账务系统空间</span>
           </div>
-          <IconLucideChevronsUpDown />
-        </AButton>
-        <AButton className="flex items-center justify-start gap-5 overflow-hidden px-[18px] transition-all transition-duration-200 hover:border-colorPrimary group-data-[collapsible=true]:!justify-center group-data-[collapsible=true]:!p-2" color="default" variant="filled" size="large">
-          <i className="i-lucide:search" />
-          <div className="text-sm text-colorTextDescription group-data-[collapsible=true]:!hidden">搜索项目...</div>
-        </AButton>
-      </div>
+          <i className='i-lucide:chevrons-down-up' />
+        </div>
+      </AButton>
+      <AButton color="default" variant="filled" size="large" style={{ width: 'calc(100% - 8px)', paddingLeft: collapsed ? 'calc(50% - 13px)' : 12 }} className="m-1 block flex items-center justify-start gap-0 overflow-hidden px-3 text-left line-height-10 transition-all transition-duration-100 hover:border-colorPrimary group-data-[collapsible=true]:block group-data-[collapsible=true]:transition-duration-400">
+        <i className="i-lucide:search inline-block" />
+        <span className="ml-[10px] text-sm text-colorTextDescription transition-all transition-duration-300 group-data-[collapsible=true]:opacity-0">
+          搜索项目...
+        </span>
+      </AButton>
       <AMenu
         mode="inline"
         defaultSelectedKeys={['1']}
         style={{ border: 'none' }}
         items={menuList}
-        inlineIndent={18}
+        inlineIndent={12}
         onSelect={handleMenuSelect}
       />
     </Sider>

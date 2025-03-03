@@ -12,6 +12,11 @@ function Test() {
   return (
     <ALayout>
 
+      <div className="w-20 flex-y-center gap-2">
+        <div className="size-22 bg-amber flex-none">13</div>
+        <div style={{ visibility: 'hidden'}}>456</div>
+      </div>
+
       <Flex gap={20} className="h-full flex items-center justify-center">
         <div>
           { count }

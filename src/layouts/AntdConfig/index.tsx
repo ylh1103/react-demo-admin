@@ -16,6 +16,11 @@ const themeConfig: ThemeConfig = {
     Layout: {
       headerHeight: 52,
     },
+    Menu: {
+      iconSize: 18,
+      collapsedIconSize: 18,
+      collapsedWidth: 52,
+    },
   },
 }
 
