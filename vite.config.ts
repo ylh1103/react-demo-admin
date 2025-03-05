@@ -32,8 +32,9 @@ export default defineConfig((config) => {
     build,
     server: {
       host: '0.0.0.0',
-      port: 8080,
       open: true,
+      cors: true,
+      origin: "*",
       proxy: {
         '/api': {
           target: 'http://localhost:3000',

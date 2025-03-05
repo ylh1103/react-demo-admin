@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom'
 import { routes } from './routes'
 
-const router = createBrowserRouter(routes, { basename: import.meta.env.VITE_BASE_URL })
+const router = createBrowserRouter(routes, { basename: window.__POWERED_BY_QIANKUN__ ? '/home/insign' : import.meta.env.VITE_BASE_URL })
 
 router.dispose()
 

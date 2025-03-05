@@ -4,7 +4,7 @@ import { spaceRoutes } from './space'
 export const routes: RouteObject[] = [
   {
     path: '/',
-    element: <LazyImport callback={() => import('@/layouts/BaseLayout')} />,
+    element: window.__POWERED_BY_QIANKUN__ ? <Outlet /> : <LazyImport callback={() => import('@/layouts/BaseLayout')} />,
     children: spaceRoutes,
   },
   {

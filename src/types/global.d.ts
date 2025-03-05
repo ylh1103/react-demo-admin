@@ -7,6 +7,7 @@ interface Window {
   $notification?: import('antd/es/notification/interface').NotificationInstance
   /** NProgress instance */
   NProgress?: import('nprogress').NProgress
+  __POWERED_BY_QIANKUN__: boolean
 }
 
 /** Build time of the project */
