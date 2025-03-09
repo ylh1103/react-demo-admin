@@ -10,45 +10,44 @@
     .loader_wrapper {
       background-color: white;
     }
-    .loader_wrapper .loader_title {
+    .loader_title {
       position: fixed;
-      top: 50%;
+      top: 45%;
       left: 50%;
       transform: translate(-50%, -50%);
-      color: black;
       font-family: Helvetica;
+      white-space: nowrap;
+      animation: 1s fadein ease-in-out forwards;
+      /* -webkit-box-reflect: below 5px linear-gradient(transparent, rgba(0, 0, 0, 0.2)); */
+    }
+    .loader_title span {
       font-size: 150px;
-      margin: 0;
-      padding: 0;
-      letter-spacing: -4px;
+      display: inline-block;
+      -webkit-text-stroke: 4px #000;
+      animation: 2s jump ease-in-out 2s infinite;
+      animation-delay: var(--delay);
       color: transparent;
-      background-image: linear-gradient(to right, black, black, transparent);
-      background-size: 200% 100%;
-      background-repeat: no-repeat;
-      -webkit-background-clip: text;
-      background-clip: text;
-      background-position-x: 200%;
-      animation: 3s fillup ease-in-out 2s infinite;
+      /* text-transform: uppercase; */
     }
-    .loader_wrapper .loader_title::after {
-      content: 'Mj_Insight';
-      position: absolute;
-      top: 0;
-      left: 0;
-      color: yellow;
-      -webkit-text-stroke: 4px;
-      -webkit-text-stroke-color: black;
-      -webkit-text-fill-color: transparent;
-      opacity: 0;
-      animation: 2s fadein ease-in-out forwards;
-    }
-
-    @keyframes fillup {
-      from {
-        background-position-x: 200%;
+    @keyframes jump {
+      0% {
+        transform: translateY(0px);
+        color: transparent;
+        text-shadow: none;
       }
-      to {
-        background-position-x: 0%;
+      20% {
+        transform: translateY(-40px);
+        color: #000;
+        text-shadow:
+          0 0 5px rgba(0, 0, 0, 0.3),
+          0 0 25px rgba(0, 0, 0, 0.3),
+          0 0 50px rgba(0, 0, 0, 0.3);
+      }
+      40%,
+      100% {
+        transform: translateY(0px);
+        color: transparent;
+        text-shadow: none;
       }
     }
 
@@ -68,5 +67,12 @@
       </div>
     </div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      const h1 = document.querySelector('.loader_title')
+      h1.innerHTML = h1.textContent.replace(/\S/g, '<span>$&</span>')
+      document.querySelectorAll('.loader_title span').forEach((span, index) => {
+        span.style.setProperty('--delay', `${index * 0.15}s`)
+      })
+    </script>
   </body>
 </html>
