@@ -11,4 +11,9 @@ export const spaceRoutes: RouteObject[] = [
     element: <LazyImport callback={() => import('@/pages/Test')} />,
     handle: { title: '设置' },
   },
+  {
+    path: 'demo',
+    element: <LazyImport callback={() => import('@/pages/Test')} />,
+    handle: { title: '设置' },
+  },
 ]

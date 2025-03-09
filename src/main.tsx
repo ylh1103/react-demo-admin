@@ -37,8 +37,6 @@ function setupApp(props?: any) {
   )
 }
 
-setupApp()
-
 if (!window.__POWERED_BY_QIANKUN__) {
   setupApp()
 }
