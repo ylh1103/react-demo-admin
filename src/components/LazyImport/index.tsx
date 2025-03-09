@@ -10,7 +10,7 @@ interface LazyImportProps {
 export const LazyImport: FC<LazyImportProps> = ({ callback }) => {
   const Component = lazy(callback)
   return (
-    <Suspense fallback={<Skeleton style={{ padding: 20 }} active />}>
+    <Suspense>
       <Component />
     </Suspense>
   )

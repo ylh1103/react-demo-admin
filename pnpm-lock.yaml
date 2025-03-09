@@ -20,6 +20,12 @@ importers:
       dayjs:
         specifier: ^1.11.13
         version: 1.11.13
+      keepalive-for-react:
+        specifier: ^4.0.2
+        version: 4.0.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      keepalive-for-react-router:
+        specifier: '1'
+        version: 1.0.1(keepalive-for-react@4.0.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react-router-dom@6.29.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react@19.0.0)
       lodash-es:
         specifier: ^4.17.21
         version: 4.17.21
@@ -2209,6 +2215,20 @@ packages:
   jsonc-eslint-parser@2.4.0:
     resolution: {integrity: sha512-WYDyuc/uFcGp6YtM2H0uKmUwieOuzeE/5YocFJLnLfclZ4inf3mRn8ZVy1s7Hxji7Jxm6Ss8gqpexD/GlKoGgg==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+
+  keepalive-for-react-router@1.0.1:
+    resolution: {integrity: sha512-OxfBdjIZoVdrbOegaIZZ/1Ra2JPNVgnaPPMmS0A5obuIjvlplJyJ6KYhJsYbeiSoViJNWIvi30imO0nb/y0Oig==}
+    peerDependencies:
+      keepalive-for-react: workspace:^
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+      react-router-dom: '>=6.0.0'
+
+  keepalive-for-react@4.0.2:
+    resolution: {integrity: sha512-KX57IFOvChhIZOz//NuqWzD04vhr+HtFBbj+ibmRnB0dWQrYu/XyaKvD1eWbeArzrtVdQ8gapLG5+hz9IomSnA==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
 
   keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
@@ -5969,6 +5989,18 @@ snapshots:
       eslint-visitor-keys: 3.4.3
       espree: 9.6.1
       semver: 7.7.1
+
+  keepalive-for-react-router@1.0.1(keepalive-for-react@4.0.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react-router-dom@6.29.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react@19.0.0):
+    dependencies:
+      keepalive-for-react: 4.0.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
+      react-router-dom: 6.29.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+
+  keepalive-for-react@4.0.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
+    dependencies:
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
 
   keyv@4.5.4:
     dependencies:
