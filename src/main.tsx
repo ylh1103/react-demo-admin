@@ -38,7 +38,7 @@ function setupApp(props?: any) {
 }
 
 if (!window.__POWERED_BY_QIANKUN__) {
-  // setupApp()
+  setupApp()
 }
 
 export async function bootstrap() {

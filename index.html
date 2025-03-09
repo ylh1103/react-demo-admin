@@ -71,7 +71,7 @@
       const h1 = document.querySelector('.loader_title')
       h1.innerHTML = h1.textContent.replace(/\S/g, '<span>$&</span>')
       document.querySelectorAll('.loader_title span').forEach((span, index) => {
-        span.style.setProperty('--delay', `${index * 0.15}s`)
+        span.style.setProperty('--delay', `${index * 0.15 + 1}s`)
       })
     </script>
   </body>
