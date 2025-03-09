@@ -20,6 +20,7 @@ declare global {
   const ATypography: typeof import('antd')['Typography']
   const IconCarbonSettings: typeof import('~icons/carbon/settings.tsx')['default']
   const IconDeviconPython: typeof import('~icons/devicon/python.tsx')['default']
+  const IconIcOutlineHdrAuto: typeof import('~icons/ic/outline-hdr-auto.tsx')['default']
   const IconLocalConstruction: typeof import('~icons/local/construction.tsx')['default']
   const IconLocalConstructionDark: typeof import('~icons/local/construction-dark.tsx')['default']
   const IconLocalFailure: typeof import('~icons/local/failure.tsx')['default']

@@ -1,5 +1,5 @@
 import { FileSystemIconLoader } from '@iconify/utils/lib/loader/node-loaders'
-import { defineConfig, presetIcons, presetWind3 } from 'unocss'
+import { defineConfig, presetIcons, presetMini, presetWind3 } from 'unocss'
 
 export default defineConfig({
   content: {
@@ -10,6 +10,7 @@ export default defineConfig({
   },
   // 使用默认预设
   presets: [
+    presetMini({ dark: 'class' }),
     presetWind3(),
     presetIcons({
       collections: {
@@ -23,17 +24,17 @@ export default defineConfig({
   ],
   theme: {
     colors: {
-      colorPrimary: '#1677ff',
-      colorSplit: 'rgba(8, 28, 62, 0.15)',
-      colorBgContainer: '#fff',
-      colorTextDescription: 'rgba(0, 0, 0, 0.45)',
-      colorBorderSecondary: '#f0f0f0',
+      colorPrimary: 'var(--colorPrimary)',
+      colorSplit: 'var(--colorSplit)',
+      colorBgContainer: 'var(--colorBgContainer)',
+      colorTextDescription: 'var(--colorTextDescription)',
+      colorBorderSecondary: 'var(--colorBorderSecondary)',
     },
   },
   // 简写
   shortcuts: [
     {
-      'border-normal': 'border border-solid border-colorSplit'
+      'border-normal': 'border border-solid border-colorSplit',
     },
     {
       'flex-1-hidden': 'flex-1 overflow-hidden',

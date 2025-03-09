@@ -1,34 +1,9 @@
-import { useMyStore } from '@/store'
-import { Button, Flex } from 'antd'
+import { ThemeModeSwitch } from '@/layouts/themeProvider'
 
 function Test() {
-  const count = useMyStore(state => state.count)
-  const count2 = useMyStore(state => state.count2)
-  const nest = useMyStore(state => state.nest)
-
-  const increment = useMyStore(state => state.increment)
-  const decrement = useMyStore(state => state.decrement)
-  const changeNest = useMyStore(state => state.changeNest)
   return (
     <ALayout>
-
-      <div className="w-20 flex-y-center gap-2">
-        <div className="size-22 bg-amber flex-none">13</div>
-        <div style={{ visibility: 'hidden'}}>456</div>
-      </div>
-
-      <Flex gap={20} className="h-full flex items-center justify-center">
-        <div>
-          { count }
-          111
-        </div>
-        <div>{ count2 }</div>
-        <div>{ nest.num }</div>
-        <Button type="primary" onClick={() => increment(1)}>one up</Button>
-        <Button type="primary" onClick={() => decrement(1)}>one down</Button>
-        <Button type="primary" onClick={() => changeNest(1)}>changeNest</Button>
-      </Flex>
-
+      <ThemeModeSwitch />
       <ARow className="m-60">
         <ACol span={6}>
           <IconLocalConstructionDark className="text-[200px]" />
