@@ -6,8 +6,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>%VITE_APP_TITLE%</title>
   </head>
+  <style>
+    .loader_wrapper {
+      background-color: white;
+    }
+    .loader_wrapper .loader_title {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: black;
+      font-family: Helvetica;
+      font-size: 150px;
+      margin: 0;
+      padding: 0;
+      letter-spacing: -4px;
+      color: transparent;
+      background-image: linear-gradient(to right, black, black, transparent);
+      background-size: 200% 100%;
+      background-repeat: no-repeat;
+      -webkit-background-clip: text;
+      background-clip: text;
+      background-position-x: 200%;
+      animation: 3s fillup ease-in-out 2s infinite;
+    }
+    .loader_wrapper .loader_title::after {
+      content: 'Mj_Insight';
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: yellow;
+      -webkit-text-stroke: 4px;
+      -webkit-text-stroke-color: black;
+      -webkit-text-fill-color: transparent;
+      opacity: 0;
+      animation: 2s fadein ease-in-out forwards;
+    }
+
+    @keyframes fillup {
+      from {
+        background-position-x: 200%;
+      }
+      to {
+        background-position-x: 0%;
+      }
+    }
+
+    @keyframes fadein {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div class="loader_wrapper">
+        <h1 class="loader_title">Mj_Insight</h1>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
