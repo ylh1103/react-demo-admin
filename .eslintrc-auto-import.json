@@ -161,6 +161,8 @@
     "Routes": true,
     "useLinkClickHandler": true,
     "useSearchParams": true,
-    "IconIcOutlineHdrAuto": true
+    "IconIcOutlineHdrAuto": true,
+    "SyntaxHighlighter": true,
+    "AModal": true
   }
 }
