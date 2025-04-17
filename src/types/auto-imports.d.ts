@@ -18,6 +18,7 @@ declare global {
   const AMenu: typeof import('antd')['Menu']
   const AModal: typeof import('antd')['Modal']
   const ARow: typeof import('antd')['Row']
+  const ASplitter: typeof import('antd')['Splitter']
   const ATypography: typeof import('antd')['Typography']
   const IconCarbonSettings: typeof import('~icons/carbon/settings.tsx')['default']
   const IconDeviconPython: typeof import('~icons/devicon/python.tsx')['default']

@@ -163,6 +163,7 @@
     "useSearchParams": true,
     "IconIcOutlineHdrAuto": true,
     "SyntaxHighlighter": true,
-    "AModal": true
+    "AModal": true,
+    "ASplitter": true
   }
 }

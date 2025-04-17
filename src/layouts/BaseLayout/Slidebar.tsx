@@ -23,12 +23,12 @@ const Slidebar: FC<SlidebarProps> = ({ collapsed }) => {
   return (
     <Sider
       data-collapsible={collapsed}
-      width={255}
+      width='100%'
       collapsedWidth={52}
       trigger={null}
       collapsible
       collapsed={collapsed}
-      className="group hidden border-0 border-r border-colorSplit border-solid bg-colorBgContainer md:block"
+      className="group hidden bg-colorBgContainer md:block"
     >
       <AButton size="large" type="text" block style={{ width: 'calc(100% - 8px)' }} className="mx-1 my-2 h-12 flex-center gap-2 border-none p-2 text-base transition-all transition-duration-300 group-data-[collapsible=true]:p-0">
         <AAvatar shape="square" size={40} className="inline-block flex-none bg-colorPrimary" />
