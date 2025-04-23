@@ -8,6 +8,10 @@ export const routes: RouteObject[] = [
     children: spaceRoutes,
   },
   {
+    path: '/login',
+    element: <LazyImport callback={() => import('@/pages/Login')} />,
+  },
+  {
     path: '/403',
     element: <LazyImport callback={() => import('@/pages/Error/403')} />,
   },
