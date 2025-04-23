@@ -21,7 +21,8 @@ function Login() {
             <div className="absolute bottom-0 left-6 aspect-[1.067842] max-w-none w-[1574px] <lg:relative <lg:bottom-0 <lg:top-7 <sm:top-1.5 <xl:left-0 <lg:mb-6 <lg:mt-[-36%] <md:mb-[-15%] <md:mt-0 <sm:mb-2 <sm:aspect-auto <lg:w-[120%] <md:w-full <sm:min-h-[350px] <xl:w-[1220px] <md:-top-3 <xl:-bottom-[39px]">
               <div className="absolute bottom-0 z-0 aspect-[1.335187] max-w-none w-[1920px] mix-blend-lighten -left-[344px] <lg:bottom-[-2.1%] <lg:left-[-27%] <md:bottom-[5.4%] <md:left-[-34.95%] <sm:bottom-[1.9%] <sm:left-[-36.2%] <xl:bottom-[23px] <xl:left-[-253px] <lg:w-[147%] <md:w-[189%] <sm:min-w-[704px] <sm:w-[190%] <xl:w-[1620px]">
                 <video className="absolute inset-0 h-full w-full" autoPlay loop playsInline>
-                  <source src="https://huly.io/videos/pages/home/hero/hero.mp4?updated=20240607144404"></source>
+                  <source src="https://huly.io/videos/pages/home/hero/hero.mp4?updated=20240607144404" type="video/mp4"></source>
+                  <source src="https://huly.io/videos/pages/home/hero/hero.webm?updated=20240607144404" type="video/webm"></source>
                 </video>
               </div>
             </div>

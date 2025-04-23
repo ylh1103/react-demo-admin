@@ -25,6 +25,9 @@ const themeSettings: ThemeConfig = {
       collapsedWidth: 52,
     },
   },
+  token: {
+    colorPrimary: '#7F8CF3',
+  },
 }
 function toggleCssDarkMode(darkMode = false) {
   const htmlElementClassList = document.documentElement.classList
