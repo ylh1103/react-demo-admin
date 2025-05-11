@@ -55,3 +55,35 @@ body,
 .dark::view-transition-new(root) {
   z-index: 9999;
 }
+
+@keyframes cycle-words {
+  13% {
+    -webkit-transform: translateY(-105%);
+    transform: translateY(-105%);
+  }
+
+  33% {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+
+  46% {
+    -webkit-transform: translateY(-205%);
+    transform: translateY(-205%);
+  }
+
+  66% {
+    -webkit-transform: translateY(-200%);
+    transform: translateY(-200%);
+  }
+
+  80% {
+    -webkit-transform: translateY(-305%);
+    transform: translateY(-305%);
+  }
+
+  100% {
+    -webkit-transform: translateY(-300%);
+    transform: translateY(-300%);
+  }
+}

@@ -29,6 +29,7 @@ declare global {
   const IconLocalFailureDark: typeof import('~icons/local/failure-dark.tsx')['default']
   const IconLocalIdle: typeof import('~icons/local/idle.tsx')['default']
   const IconLocalIdleDark: typeof import('~icons/local/idle-dark.tsx')['default']
+  const IconLocalLogo: typeof import('~icons/local/logo.tsx')['default']
   const IconLocalNoAccess: typeof import('~icons/local/no-access.tsx')['default']
   const IconLocalNoAccessDark: typeof import('~icons/local/no-access-dark.tsx')['default']
   const IconLocalNoContent: typeof import('~icons/local/no-content.tsx')['default']

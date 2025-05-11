@@ -164,6 +164,7 @@
     "IconIcOutlineHdrAuto": true,
     "SyntaxHighlighter": true,
     "AModal": true,
-    "ASplitter": true
+    "ASplitter": true,
+    "IconLocalLogo": true
   }
 }
