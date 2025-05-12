@@ -165,6 +165,9 @@
     "SyntaxHighlighter": true,
     "AModal": true,
     "ASplitter": true,
-    "IconLocalLogo": true
+    "IconLocalLogo": true,
+    "IconTeenyiconsTopRightSolid": true,
+    "IconTeenyiconsArrowRightSolid": true,
+    "IconLocalArrowRight": true
   }
 }
