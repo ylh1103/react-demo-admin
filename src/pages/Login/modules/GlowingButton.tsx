@@ -1,26 +1,27 @@
-import { useMotionValue, useSpring, useTransform } from 'motion/react'
+import { motion, useMotionValue, useSpring, useTransform } from 'motion/react'
 
 interface GlowingButtonProps {
   children: React.ReactNode
 }
 
 const GlowingButton: FC<GlowingButtonProps> = ({ children }) => {
-  const btnDom = useRef(null)
-  const { xTransform, leftGradientOpacity, rightGradientOpacity } = useGlowEffect(btnDom)
+  const wrapperDom = useRef<HTMLDivElement>(null)
+  const { xTransform, leftGradientOpacity, rightGradientOpacity } = useGlowEffect(wrapperDom)
+
   return (
     <div className="mt-11 <lg:mt-7 <md:mt-5 <xl:mt-9">
-      <div className="relative z-10 inline-flex items-center" ref={btnDom}>
-        <div className="border-button-light-blur absolute left-1/2 top-1/2 h-[calc(100%+9px)] w-[calc(100%+9px)] rounded-full will-change-transform -translate-x-1/2 -translate-y-1/2" style={{ opacity: leftGradientOpacity }}>
+      <div className="relative z-10 inline-flex items-center" ref={wrapperDom}>
+        <motion.div className="border-button-light-blur absolute left-1/2 top-1/2 h-[calc(100%+9px)] w-[calc(100%+9px)] rounded-full will-change-transform -translate-x-1/2 -translate-y-1/2" style={{ opacity: leftGradientOpacity }}>
           <div className="border-button-light relative h-full w-full rounded-full"></div>
-        </div>
-        <div className="border-button-light-blur absolute left-1/2 top-1/2 h-[calc(100%+9px)] w-[calc(100%+9px)] scale-x-[-1] transform rounded-full will-change-transform -translate-x-1/2 -translate-y-1/2" style={{ opacity: rightGradientOpacity }}>
+        </motion.div>
+        <motion.div className="border-button-light-blur absolute left-1/2 top-1/2 h-[calc(100%+9px)] w-[calc(100%+9px)] scale-x-[-1] transform rounded-full will-change-transform -translate-x-1/2 -translate-y-1/2" style={{ opacity: rightGradientOpacity }}>
           <div className="border-button-light relative h-full w-full rounded-full"></div>
-        </div>
+        </motion.div>
         <a className="relative z-10 h-10 flex-center gap-1 overflow-hidden border border-white/60 rounded-full bg-[#d1d1d1] px-18 text-sm text-[#5A250A] font-bold transition-colors duration-200 <md:px-12 <md:text-xs hover:text-[#5A250A]">
-          <div className="absolute w-[204px] flex-center -z-10" style={{ transform: `translateX(${xTransform}px)` }}>
+          <motion.div className="absolute w-[204px] flex-center -z-10" style={{ x: xTransform }}>
             <div className="absolute top-1/2 h-[121px] w-[121px] bg-[radial-gradient(50%_50%_at_50%_50%,#FFFFF5_3.5%,_#FFAA81_26.5%,#FFDA9F_37.5%,rgba(255,170,129,0.50)_49%,rgba(210,106,58,0.00)_92.5%)] -translate-y-1/2"></div>
             <div className="absolute top-1/2 h-[103px] w-[204px] bg-[radial-gradient(43.3%_44.23%_at_50%_49.51%,_#FFFFF7_29%,_#FFFACD_48.5%,_#F4D2BF_60.71%,rgba(214,211,210,0.00)_100%)] blur-[5px] -translate-y-1/2"></div>
-          </div>
+          </motion.div>
           {children}
         </a>
       </div>
@@ -32,7 +33,7 @@ export default GlowingButton
 
 const springConfig = {
   initial: {
-    stiffness: 1e4,
+    stiffness: 10000,
     damping: 500,
   },
   leave: {
@@ -41,67 +42,55 @@ const springConfig = {
   },
 }
 
-function useGlowEffect(ref) {
+function useGlowEffect(ref: React.RefObject<HTMLDivElement | null>) {
   const [center, setCenter] = useState(105)
   const [spring, setSpring] = useState(springConfig.initial)
-  const timerRef = useRef(null)
-
   const position = useSpring(center, spring)
   const motionValue = useMotionValue(position.get())
-  const aaa = motionValue?.get()
 
-  const handleMouseMove = (e) => {
+  const timerRef = useRef<NodeJS.Timeout>(null)
+
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     if (timerRef.current) {
       setSpring(springConfig.initial)
       clearTimeout(timerRef.current)
       timerRef.current = null
     }
 
-    const rect = e.currentTarget.getBoundingClientRect()
-    const x = e.clientX - rect.left
-    const aa = x - rect.width / 2
-    motionValue.set(aa)
+    const rect = event.currentTarget.getBoundingClientRect()
+    const x = event.clientX - rect.left
+    motionValue.set(x - rect.width / 2)
   }
 
   const handleMouseLeave = () => {
     setSpring(springConfig.leave)
     timerRef.current = setTimeout(() => {
-      // motionValue.set(center)
+      motionValue.set(center)
       setSpring(springConfig.initial)
     }, 1000)
   }
 
+  useEventListener('mousemove', handleMouseMove, { target: ref })
+  useEventListener('mousemove', handleMouseLeave, { target: ref })
+
   useEffect(() => {
-    if (!ref.current)
-      return
+    if (ref.current) {
+      const rect = ref.current.getBoundingClientRect()
+      const newCenter = rect.width / 2 - 6
 
-    const rect = ref.current.getBoundingClientRect()
-    const newCenter = rect.width / 2 - 6
-
-    if (newCenter !== center) {
-      setCenter(newCenter)
-      motionValue.set(newCenter)
-    }
-
-    ref.current.addEventListener('mousemove', handleMouseMove)
-    ref.current.addEventListener('mouseleave', handleMouseLeave)
-
-    return () => {
-      if (ref.current) {
-        ref.current.removeEventListener('mousemove', handleMouseMove)
-        ref.current.removeEventListener('mouseleave', handleMouseLeave)
+      if (newCenter !== center) {
+        setCenter(newCenter)
+        motionValue.set(newCenter)
       }
     }
-  }, [ref.current])
+  }, [])
 
-  const points = [-center, -0.7 * center, -0.3 * center, 0, 0.3 * center, 0.7 * center, center]
+  const xPoints = [-center, -0.7 * center, -0.3 * center, 0, 0.3 * center, 0.7 * center, center]
   const opacityPoints = [0, 0.1, 0.3, 0.5, 0.7, 0.9, 1]
 
-  const xTransform = useTransform(motionValue, points, points).get()
-  console.log('🚀 ~ useGlowEffect ~ xTransform:', xTransform)
-  const leftGradientOpacity = useTransform(motionValue, [0, 0.1 * center, 0.3 * center, 0.5 * center, 0.7 * center, 0.9 * center, center], opacityPoints).get()
-  const rightGradientOpacity = useTransform(motionValue, [-center, -0.9 * center, -0.7 * center, -0.5 * center, -0.3 * center, -0.1 * center, 0], opacityPoints.reverse(),
-  ).get()
+  const xTransform = useTransform(motionValue, xPoints, xPoints)
+  const leftGradientOpacity = useTransform(motionValue, [0, 0.1 * center, 0.3 * center, 0.5 * center, 0.7 * center, 0.9 * center, center], opacityPoints)
+  const rightGradientOpacity = useTransform(motionValue, [-center, -0.9 * center, -0.7 * center, -0.5 * center, -0.3 * center, -0.1 * center, 0], opacityPoints.reverse())
 
   return { xTransform, leftGradientOpacity, rightGradientOpacity }
 }
