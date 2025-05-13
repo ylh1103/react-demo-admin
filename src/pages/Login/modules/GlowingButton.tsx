@@ -33,12 +33,14 @@ export default GlowingButton
 
 const springConfig = {
   initial: {
-    stiffness: 10000,
-    damping: 500,
+    stiffness: 300,
+    damping: 30,
+    mass: 0.5,
   },
   leave: {
     stiffness: 100,
     damping: 20,
+    mass: 1,
   },
 }
 
@@ -46,32 +48,34 @@ function useGlowEffect(ref: React.RefObject<HTMLDivElement | null>) {
   const [center, setCenter] = useState(105)
   const [spring, setSpring] = useState(springConfig.initial)
   const position = useSpring(center, spring)
-  const motionValue = useMotionValue(position.get())
 
   const timerRef = useRef<NodeJS.Timeout>(null)
 
-  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+  const handleMouseMove = (event: MouseEvent) => {
+    if (!ref.current)
+      return
+
     if (timerRef.current) {
-      setSpring(springConfig.initial)
       clearTimeout(timerRef.current)
       timerRef.current = null
+      setSpring(springConfig.initial)
     }
 
-    const rect = event.currentTarget.getBoundingClientRect()
+    const rect = ref.current.getBoundingClientRect()
     const x = event.clientX - rect.left
-    motionValue.set(x - rect.width / 2)
+    position.set(x - rect.width / 2)
   }
 
   const handleMouseLeave = () => {
     setSpring(springConfig.leave)
     timerRef.current = setTimeout(() => {
-      motionValue.set(center)
+      position.set(center)
       setSpring(springConfig.initial)
     }, 1000)
   }
 
   useEventListener('mousemove', handleMouseMove, { target: ref })
-  useEventListener('mousemove', handleMouseLeave, { target: ref })
+  useEventListener('mouseleave', handleMouseLeave, { target: ref })
 
   useEffect(() => {
     if (ref.current) {
@@ -80,7 +84,7 @@ function useGlowEffect(ref: React.RefObject<HTMLDivElement | null>) {
 
       if (newCenter !== center) {
         setCenter(newCenter)
-        motionValue.set(newCenter)
+        position.set(newCenter)
       }
     }
   }, [])
@@ -88,9 +92,17 @@ function useGlowEffect(ref: React.RefObject<HTMLDivElement | null>) {
   const xPoints = [-center, -0.7 * center, -0.3 * center, 0, 0.3 * center, 0.7 * center, center]
   const opacityPoints = [0, 0.1, 0.3, 0.5, 0.7, 0.9, 1]
 
-  const xTransform = useTransform(motionValue, xPoints, xPoints)
-  const leftGradientOpacity = useTransform(motionValue, [0, 0.1 * center, 0.3 * center, 0.5 * center, 0.7 * center, 0.9 * center, center], opacityPoints)
-  const rightGradientOpacity = useTransform(motionValue, [-center, -0.9 * center, -0.7 * center, -0.5 * center, -0.3 * center, -0.1 * center, 0], opacityPoints.reverse())
+  const xTransform = useTransform(position, xPoints, xPoints)
+  const leftGradientOpacity = useTransform(
+    position,
+    [0, 0.1 * center, 0.3 * center, 0.5 * center, 0.7 * center, 0.9 * center, center],
+    opacityPoints,
+  )
+  const rightGradientOpacity = useTransform(
+    position,
+    [-center, -0.9 * center, -0.7 * center, -0.5 * center, -0.3 * center, -0.1 * center, 0],
+    opacityPoints.reverse(),
+  )
 
   return { xTransform, leftGradientOpacity, rightGradientOpacity }
 }
