@@ -1,11 +1,13 @@
+import login1 from '@/assets/login/login1.webp'
 import styles from './index.module.less'
 import GlowingButton from './modules/GlowingButton'
+ const login3 = 'https://huly.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fhero-illustration.7100a376.jpg&w=3840&q=75'
 
 function Login() {
   return (
     <div className={`${styles.login_wrapper} min-h-full bg-[rgb(9,10,12)] text-white`}>
       <header className="absolute left-0 right-0 top-0 z-40 h-16 bg-transparent">
-        <div className="m-auto h-full max-w-screen-xl flex-y-center select-none gap-2 px-8 text-2xl font-800">
+        <div className="m-auto h-full max-w-screen-xl flex-y-center select-none gap-2 px-8 text-2xl font-800 <md:text-xl">
           <IconLocalLogo />
           InsightX
         </div>
@@ -32,13 +34,14 @@ function Login() {
               开始使用
               <IconLocalArrowRight className="h-[9px] w-[17px] text-[#5A250A]" />
             </GlowingButton>
-            <div className="absolute bottom-0 left-6 aspect-[1.067842] max-w-none w-[1574px] <lg:relative <lg:bottom-0 <lg:top-7 <sm:top-1.5 <xl:left-0 <lg:mb-6 <lg:mt-[-36%] <md:mb-[-15%] <md:mt-0 <sm:mb-2 <sm:aspect-auto <lg:w-[120%] <md:w-full <sm:min-h-[350px] <xl:w-[1220px] <md:-top-3 <xl:-bottom-[39px]">
-              <div className="absolute bottom-0 z-0 aspect-[1.335187] max-w-none w-[1920px] mix-blend-lighten -left-[344px] <lg:bottom-[-2.1%] <lg:left-[-27%] <md:bottom-[5.4%] <md:left-[-34.95%] <sm:bottom-[1.9%] <sm:left-[-36.2%] <xl:bottom-[23px] <xl:left-[-253px] <lg:w-[147%] <md:w-[189%] <sm:min-w-[704px] <sm:w-[190%] <xl:w-[1620px]">
+            <div className="absolute bottom-0 left-6 aspect-[1.067842] max-w-none w-[1574px] <lg:relative <lg:bottom-0 <lg:top-7 <sm:top-1.5 <xl:left-0 <lg:mb-6 <lg:mt-[-36%] <md:mb-[-15%] <md:mt-25 <xs:mt-0 <sm:mb-2 <sm:aspect-auto <lg:w-[120%] <md:w-full <sm:min-h-[350px] <xl:w-[1220px] <md:-top-3 <xl:-bottom-[39px]">
+              <div className="absolute bottom-0 z-0 aspect-[1.335187] max-w-none w-[1920px] mix-blend-lighten before:absolute -left-[344px] <lg:bottom-[-2.1%] <lg:left-[-27%] <md:bottom-[5.4%] <md:left-[-34.95%] <sm:bottom-[1.9%] <sm:left-[-36.2%] <xl:bottom-[23px] <xl:left-[-253px] before:top-0 before:z-10 before:hidden <lg:w-[147%] <md:w-[189%] <sm:min-w-[704px] <sm:w-[190%] <xl:w-[1620px] before:h-20 before:w-full before:content-[''] before:from-[#090a0c] before:to-[rgba(9,10,12,0)] before:bg-gradient-to-b <md:before:block">
                 <video className="absolute inset-0 h-full w-full" autoPlay loop muted playsInline>
                   <source src="https://huly.io/videos/pages/home/hero/hero.mp4?updated=20240607144404" type="video/mp4"></source>
                   <source src="https://huly.io/videos/pages/home/hero/hero.webm?updated=20240607144404" type="video/webm"></source>
                 </video>
               </div>
+              <img src={login3} width={1024} height={569} className="<xs:mt-[83px] absolute bottom-[141px] left-2 h-auto max-w-full rounded-t-2.5 <md:relative <lg:bottom-[9.5%] <lg:left-0 <md:bottom-auto <sm:bottom-23 <xs:bottom-auto <xl:bottom-[138px] <xl:left-9 <md:mt-[18.7%] <sm:mt-[21.6%] <lg:w-[78.4%] <md:min-w-[100.5%] <md:w-[100.5%] <sm:min-w-[376px] <sm:w-full <xl:w-[873px] <lg:rounded-t-md <md:rounded-t" />
             </div>
           </div>
         </section>

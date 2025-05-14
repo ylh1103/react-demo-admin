@@ -34,7 +34,7 @@ export default defineConfig((config) => {
       host: '0.0.0.0',
       open: true,
       cors: true,
-      origin: "*",
+      // origin: "*",
       proxy: {
         '/api': {
           target: 'http://localhost:3000',

@@ -31,6 +31,9 @@ export default defineConfig({
       colorBorderSecondary: 'var(--colorBorderSecondary)',
     },
   },
+  extendTheme: (theme) => {
+    theme.breakpoints.xs = '413px'
+  },
   // 简写
   shortcuts: [
     {
