@@ -4,7 +4,7 @@ import { createRoot } from 'react-dom/client'
 import { ErrorBoundary } from 'react-error-boundary'
 import App from './App.tsx'
 import ErrorBoundaryRender from './layouts/ErrorBoundaryRender.tsx'
-import { setupAppVersionNotification, setupLoading, setupNProgress } from './plugins/index.ts'
+import { setupAppVersionNotification, setupLoading, setupRegister } from './plugins/index.ts'
 import './plugins/assets'
 
 let root: Root
@@ -13,8 +13,7 @@ function setupApp(props?: any) {
 // createRoot挂载前的加载样式
   setupLoading()
 
-  // 配置nprogress，将NProgress挂载到全局
-  setupNProgress()
+  setupRegister()
 
   // 检测系统版本更新
   setupAppVersionNotification()

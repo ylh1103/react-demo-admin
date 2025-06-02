@@ -8,10 +8,10 @@ interface Window {
   /** NProgress instance */
   NProgress?: import('nprogress').NProgress
   __POWERED_BY_QIANKUN__: boolean
+  $highlighter: import('shiki').HighlighterGeneric
 }
 
 /** Build time of the project */
 declare const BUILD_TIME: string
-
 
 type SetStateAction<T> = React.Dispatch<React.SetStateAction<T>>
