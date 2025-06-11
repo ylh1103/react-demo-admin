@@ -1,7 +1,8 @@
 import { FileSystemIconLoader } from '@iconify/utils/lib/loader/node-loaders'
+import presetLegacyCompat from '@unocss/preset-legacy-compat'
 import { defineConfig, presetIcons, presetMini, presetWind3 } from 'unocss'
 
-export default defineConfig({
+export default defineConfig<any>({
   content: {
     // 用于确定是否从构建工具的转换管道中提取特定模块的过滤器
     pipeline: {
@@ -17,68 +18,59 @@ export default defineConfig({
         // @iconify-json/lucide图标集合，使用动态导入来提供集合，这样它们将作为异步块进行打包，并在需要时加载
         lucide: () => import('@iconify-json/lucide/icons.json').then(i => i.default),
         // 本地src/assets/svg-icon下的图标集合
-        local: FileSystemIconLoader('./assets/svg-icon', svg =>
-          svg.replace(/^<svg\s/, '<svg width="1em" height="1em" ')),
+        local: FileSystemIconLoader('./src/assets/svg-icon', (svg) => {
+          return svg.replace(/^<svg\s/, '<svg width="1em" height="1em" ')
+        }),
+      },
+      extraProperties: {
+        display: 'inline-block',
       },
     }),
+    // 兼容旧版浏览器
+    // eslint-disable-next-line ts/ban-ts-comment
+    // @ts-expect-error
+    presetLegacyCompat({ commaStyleColorFunction: true, legacyColorSpace: true }),
   ],
   theme: {
     colors: {
       colorPrimary: 'var(--colorPrimary)',
+      colorPrimaryBg: 'var(--colorPrimaryBg)',
+      colorPrimaryBgHover: 'var(--colorPrimaryBgHover)',
       colorSplit: 'var(--colorSplit)',
+      colorBorder: 'var(--colorBorder)',
       colorBgContainer: 'var(--colorBgContainer)',
       colorTextDescription: 'var(--colorTextDescription)',
       colorBorderSecondary: 'var(--colorBorderSecondary)',
+      colorBgTextHover: 'var(--colorBgTextHover)',
+      colorText: 'var(--colorText)',
     },
   },
   extendTheme: (theme) => {
     theme.breakpoints.xs = '413px'
   },
+  rules: [
+    [/^b-card$/, (_, { theme }) => ({ 'border-radius': 'var(--borderRadiusLG)', 'border': `1px solid ${theme.colors.colorBorderSecondary}`, 'background': theme.colors.colorBgContainer })],
+    [/^b-radius-lg$/, () => ({ 'border-radius': 'var(--borderRadiusLG)' })],
+  ],
   // 简写
   shortcuts: [
     {
       'border-normal': 'border border-solid border-colorSplit',
+      'border-bottom': 'border-0 border-b border-solid border-colorBorder',
+      'b-card-bold': 'b-card !border-colorBorder',
+      'bg-gradient-primary': 'from-colorPrimary to-colorPrimaryBgHover bg-gradient-to-rb',
     },
     {
-      'flex-1-hidden': 'flex-1 overflow-hidden',
       'flex-center': 'flex justify-center items-center',
       'flex-between': 'flex justify-between items-center',
       'flex-col': 'flex flex-col',
       'flex-col-center': 'flex-center flex-col',
       'flex-col-between': 'flex-col justify-between',
-      'flex-col-stretch': 'flex-col items-stretch',
       'flex-x-center': 'flex justify-center',
       'flex-x-between': 'flex justify-between',
       'flex-y-center': 'flex items-center',
-      'i-flex-center': 'inline-flex justify-center items-center',
-      'i-flex-col': 'flex-col inline-flex',
-      'i-flex-col-center': 'flex-col i-flex-center',
-      'i-flex-col-stretch': 'i-flex-col items-stretch',
-      'i-flex-x-center': 'inline-flex justify-center',
-      'i-flex-y-center': 'inline-flex items-center',
     },
     {
-      'absolute-bl': 'absolute-lb',
-      'absolute-br': 'absolute-rb',
-      'absolute-center': 'absolute-lt flex-center size-full',
-      'absolute-lb': 'absolute left-0 bottom-0',
-      'absolute-lt': 'absolute left-0 top-0',
-      'absolute-rb': 'absolute right-0 bottom-0',
-      'absolute-rt': 'absolute right-0 top-0',
-      'absolute-tl': 'absolute-lt',
-      'absolute-tr': 'absolute-rt',
-      'fixed-bl': 'fixed-lb',
-      'fixed-br': 'fixed-rb',
-      'fixed-center': 'fixed-lt flex-center size-full',
-      'fixed-lb': 'fixed left-0 bottom-0',
-      'fixed-lt': 'fixed left-0 top-0',
-      'fixed-rb': 'fixed right-0 bottom-0',
-      'fixed-rt': 'fixed right-0 top-0',
-      'fixed-tl': 'fixed-lt',
-      'fixed-tr': 'fixed-rt',
-    },
-    {
-      'ellipsis-text': 'nowrap-hidden text-ellipsis',
       'nowrap-hidden': 'overflow-hidden whitespace-nowrap',
     },
   ],
