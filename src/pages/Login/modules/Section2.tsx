@@ -118,7 +118,7 @@ function Section2() {
           <div className="pointer-events-none absolute top-[27.2%] z-2 h-40 w-[155%] -left-[37%] -rotate-120">
             <FloatingParticles />
           </div>
-          <div className="lights pointer-events-none absolute h-full w-[123%] -left-[8.6%] -top-[47.6%]">
+          <div className="lights pointer-events-none absolute left-[8%] h-full w-[123%] -top-[27%]">
             <div className="light_image left-[9.4%] top-[11.2%] w-[75%] opacity-60 mix-blend-color-dodge -z-1">
               <img src="https://wope.com/images/creating-project/creating-project-box-smart-lights-1.png" />
             </div>
