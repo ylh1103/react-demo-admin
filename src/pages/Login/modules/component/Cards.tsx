@@ -15,7 +15,7 @@ interface CardItemProps {
 const CardItem: React.FC<CardItemProps> = ({ children, span = 1 }) => {
   return (
     <div style={{ gridColumn: `span ${span}` }} className="card <lg:col-span-1!">
-      <div className="card_content relative px-8 py-3 py-5 <lg:px-6">
+      <div className="card_content relative px-7 py-5 <lg:px-5 <lg:py-4">
         { children }
       </div>
     </div>

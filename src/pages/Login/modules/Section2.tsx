@@ -92,14 +92,14 @@ function Section2() {
               {list.map(item => (
                 <li key={item} className="flex-y-center gap-2">
                   <CirclePrimary size={16} />
-                  <p className="text_desc text-base">{item}</p>
+                  <p className="text_desc text-base <md:text-sm">{item}</p>
                 </li>
               ))}
             </div>
             <div className="projects_bg grow">
               <div className="projects_inner h-full flex-col-between">
                 {
-                  Array.from({ length: 4 }).fill('').map((_, index) => (
+                  Array.from({ length: 4 }).map((_, index) => (
                     <div key={index} className="project_row flex">
                       {
                         items.map((item, index2) => (
@@ -118,7 +118,7 @@ function Section2() {
           <div className="pointer-events-none absolute top-[27.2%] z-2 h-40 w-[155%] -left-[37%] -rotate-120">
             <FloatingParticles />
           </div>
-          <div className="lights pointer-events-none absolute left-[8%] h-full w-[123%] -top-[27%]">
+          <div className="lights pointer-events-none absolute left-[5%] h-full w-[123%] -top-[27%]">
             <div className="light_image left-[9.4%] top-[11.2%] w-[75%] opacity-60 mix-blend-color-dodge -z-1">
               <img src="https://wope.com/images/creating-project/creating-project-box-smart-lights-1.png" />
             </div>
