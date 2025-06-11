@@ -66,10 +66,18 @@ function addThemeVarsToGlobal(token: GlobalToken) {
   const css = `
    :root {
       --colorPrimary: ${token.colorPrimary};
+      --colorPrimaryBg: ${token.colorPrimaryBg};
+      --colorPrimaryBgHover: ${token.colorPrimaryBgHover};
       --colorSplit: ${token.colorSplit};
+      --colorBorder: ${token.colorBorder};
       --colorBgContainer: ${token.colorBgContainer};
       --colorTextDescription: ${token.colorTextDescription};
       --colorBorderSecondary: ${token.colorBorderSecondary};
+      --colorBgTextHover: ${token.colorBgTextHover};
+      --colorFillSecondary: ${token.colorFillSecondary};
+      --colorText: ${token.colorText};
+      --colorTableHeaderBg: ${token.Table?.headerBg};
+      --borderRadiusLG: ${token.borderRadiusLG}px;
     }
   `
 

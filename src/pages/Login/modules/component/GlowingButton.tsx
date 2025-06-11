@@ -2,15 +2,16 @@ import { motion, useSpring, useTransform } from 'motion/react'
 
 interface GlowingButtonProps {
   children: React.ReactNode
+  onClick?: () => void
 }
 
-const GlowingButton: FC<GlowingButtonProps> = ({ children }) => {
+const GlowingButton: FC<GlowingButtonProps> = ({ children, onClick }) => {
   const wrapperDom = useRef<HTMLDivElement>(null)
   const { xTransform, leftGradientOpacity, rightGradientOpacity } = useGlowEffect(wrapperDom)
 
   return (
     <div className="mt-11 <lg:mt-7 <md:mt-5 <xl:mt-9">
-      <div className="relative z-10 inline-flex items-center" ref={wrapperDom}>
+      <div className="relative z-10 inline-flex items-center" ref={wrapperDom} onClick={onClick}>
         <motion.div className="border-button-light-blur absolute left-1/2 top-1/2 h-[calc(100%+9px)] w-[calc(100%+9px)] rounded-full will-change-transform -translate-x-1/2 -translate-y-1/2" style={{ opacity: leftGradientOpacity }}>
           <div className="border-button-light relative h-full w-full rounded-full"></div>
         </motion.div>

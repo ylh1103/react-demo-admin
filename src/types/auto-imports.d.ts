@@ -20,6 +20,7 @@ declare global {
   const ARow: typeof import('antd')['Row']
   const ASplitter: typeof import('antd')['Splitter']
   const ATypography: typeof import('antd')['Typography']
+  const CirclePrimary: typeof import('../components/CirclePrimary/index')['default']
   const IconCarbonSettings: typeof import('~icons/carbon/settings.tsx')['default']
   const IconDeviconPython: typeof import('~icons/devicon/python.tsx')['default']
   const IconIcOutlineHdrAuto: typeof import('~icons/ic/outline-hdr-auto.tsx')['default']

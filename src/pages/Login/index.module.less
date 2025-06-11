@@ -73,24 +73,26 @@
             border-box;
       }
     }
+    img {
+      display: block;
+      transition: 1s cubic-bezier(0.6, 0.6, 0, 1) opacity;
+      border-style: none;
+      -webkit-user-drag: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
     .light_image {
       position: absolute;
       transform: scale(1);
       transform-origin: left top;
       transition: 0.5s ease transform;
       img {
-        display: block;
-        transition: 1s cubic-bezier(0.6, 0.6, 0, 1) opacity;
         height: 100%;
         width: 100%;
-        border-style: none;
-        -webkit-user-drag: none;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
       }
     }
-    .section2_bg {
+    .projects_bg {
       --background-image: url(https://wope.com/images/creating-project/creating-project-finder-mask.png);
       mask-image: var(--background-image);
       mask-position: center;
@@ -98,11 +100,35 @@
       width: 120%;
       transition: 1s cubic-bezier(0.6, 0.6, 0, 1) opacity;
     }
-    .project_row {
-      transform: translate(calc(-100% + 398px));
+    .projects_inner {
+      --translate-x: -120px;
+    }
+    .section2_box:not(.project_viewport) .projects_inner {
+      transform: translate(calc(var(--translate-x) + 100px));
+    }
+    .section2_box:not(.project_viewport) .project_row {
+      transform: translate(-200%);
       transition: none;
     }
-    .project_viewport .project_row {
+    .project_row:nth-child(1) {
+      --translate-x: 0;
+      transition-duration: 2.5s;
+    }
+    .project_row:nth-child(2) {
+      --translate-x: 150px;
+      transition-duration: 3s;
+    }
+    .project_row:nth-child(3) {
+      --translate-x: -50px;
+      transition-duration: 3.5s;
+    }
+    .project_row:nth-child(4) {
+      --translate-x: -320px;
+      transition-duration: 4s;
+    }
+    .projects_inner,
+    .project_row {
+      transform: translate(var(--translate-x));
       transition: cubic-bezier(0.6, 0.6, 0, 1) transform;
     }
   }

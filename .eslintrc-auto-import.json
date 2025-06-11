@@ -168,6 +168,7 @@
     "IconLocalLogo": true,
     "IconTeenyiconsTopRightSolid": true,
     "IconTeenyiconsArrowRightSolid": true,
-    "IconLocalArrowRight": true
+    "IconLocalArrowRight": true,
+    "CirclePrimary": true
   }
 }

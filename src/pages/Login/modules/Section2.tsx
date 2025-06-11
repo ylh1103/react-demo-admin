@@ -1,3 +1,4 @@
+import { createHighlighter } from 'shiki'
 import Cards from './component/Cards'
 
 import SectionContainer from './component/SectionContainer'
@@ -8,36 +9,38 @@ const list = [
   '实时监控CPU 和 GPU使用情况',
 ]
 
-const items = [
+const baseItems = [
   {
     name: 'PyTorch/Python',
-    icon: '',
+    icon: 'https://wope.com/images/creating-project/logo-adobe.png',
   },
   {
     name: 'Transformers',
-    icon: '',
+    icon: 'https://wope.com/images/creating-project/logo-adobe.png',
   },
   {
     name: 'Ultralytics',
-    icon: '',
+    icon: 'https://wope.com/images/creating-project/logo-adobe.png',
   },
   {
     name: 'Swift',
-    icon: '',
+    icon: 'https://wope.com/images/creating-project/logo-adobe.png',
   },
   {
     name: 'MMEngine',
-    icon: '',
+    icon: 'https://wope.com/images/creating-project/logo-adobe.png',
   },
   {
     name: 'Keras',
-    icon: '',
+    icon: 'https://wope.com/images/creating-project/logo-adobe.png',
   },
   {
     name: 'Stable Baseline3',
-    icon: '',
+    icon: 'https://wope.com/images/creating-project/logo-adobe.png',
   },
 ]
+
+const items = [...baseItems, ...baseItems, ...baseItems, ...baseItems]
 
 const step = `import swanlab
 
@@ -55,61 +58,57 @@ run = swanlab.init(
 for i in range(20):
     swanlab.log({"loss": 20-i, "acc": i/20})`
 
-function Section2() {
-  const html = window.$highlighter.codeToHtml(step, { lang: 'python', themes: { dark: 'one-dark-pro' }, defaultColor: 'dark', colorReplacements: { 'one-dark-pro': { '#282c34': '#0a0118' } } })
+async function init() {
+  const highlighter = await createHighlighter({
+    themes: ['one-dark-pro'],
+    langs: ['python'],
+  })
+  return highlighter
+}
 
+function Section2() {
   const ref = useRef(null)
   const [inViewport] = useInViewport(ref)
+  const [html, setHtml] = useState('')
+
+  useEffect(() => {
+    let highlighter: typeof window.$highlighter
+    init().then((ins) => {
+      highlighter = ins
+      const html = ins.codeToHtml(step, { lang: 'python', themes: { dark: 'one-dark-pro' }, defaultColor: 'dark', colorReplacements: { 'one-dark-pro': { '#282c34': '#0a0118' } } })
+      setHtml(html)
+    })
+    return () => {
+      highlighter.dispose()
+    }
+  }, [])
+
   return (
     <SectionContainer title="开箱即用" message="轻松集成主流AI训练框架">
       <Cards cols={2}>
         <Cards.Item>
-          <div data-view={inViewport} ref={ref} className={`parent relative h-full flex-col gap-9 ${inViewport ? 'project_viewport' : ''}`}>
+          <div data-view={inViewport} ref={ref} className={`section2_box relative h-full flex-col gap-9 ${inViewport ? 'project_viewport' : ''}`}>
             <div className="flex-col gap-2">
               {list.map(item => (
                 <li key={item} className="flex-y-center gap-2">
-                  {/* <CirclePrimary size={16} /> */}
+                  <CirclePrimary size={16} />
                   <p className="text_desc text-base">{item}</p>
                 </li>
               ))}
             </div>
-            <div className="section2_bg flex-col-between grow">
-              <div className="project_row flex transition-duration-2500">
+            <div className="projects_bg grow">
+              <div className="projects_inner h-full flex-col-between">
                 {
-                  items.map(item => (
-                    <div key={item.name} className="m-1.5 flex-y-center gap-1.5 whitespace-nowrap rounded-full bg-[#ffffff1a] py-1.5 pl-[5px] pr-[9px] text-sm opacity-70">
-                      <div className="size-5 rounded-full bg-red" />
-                      <span>{item.name}</span>
-                    </div>
-                  ))
-                }
-              </div>
-              <div className="project_row flex transition-duration-3000 parent-data-[view=true]:-translate-x-25">
-                {
-                  items.map(item => (
-                    <div key={item.name} className="m-1.5 flex-y-center gap-1.5 whitespace-nowrap rounded-full bg-[#ffffff1a] py-1.5 pl-[5px] pr-[9px] text-sm opacity-70">
-                      <div className="size-5 rounded-full bg-red" />
-                      <span>{item.name}</span>
-                    </div>
-                  ))
-                }
-              </div>
-              <div className="project_row flex transition-duration-3500 parent-data-[view=true]:-translate-x-80">
-                {
-                  items.map(item => (
-                    <div key={item.name} className="m-1.5 flex-y-center gap-1.5 whitespace-nowrap rounded-full bg-[#ffffff1a] py-1.5 pl-[5px] pr-[9px] text-sm opacity-70">
-                      <div className="size-5 rounded-full bg-red" />
-                      <span>{item.name}</span>
-                    </div>
-                  ))
-                }
-              </div>
-              <div className="project_row flex transition-duration-4000">
-                {
-                  items.reverse().map(item => (
-                    <div key={item.name} className="m-1.5 flex-y-center gap-1.5 whitespace-nowrap rounded-full bg-[#ffffff1a] py-1.5 pl-[5px] pr-[9px] text-sm opacity-70">
-                      <div className="size-5 rounded-full bg-red" />
-                      <span>{item.name}</span>
+                  Array.from({ length: 4 }).fill('').map((_, index) => (
+                    <div key={index} className="project_row flex">
+                      {
+                        items.map((item, index2) => (
+                          <div key={index2} className="m-1.5 flex-y-center gap-1.5 whitespace-nowrap rounded-full bg-[#ffffff1a] py-1.5 pl-[5px] pr-[9px] text-sm opacity-70">
+                            <img className="size-5" src={item.icon} />
+                            <span>{item.name}</span>
+                          </div>
+                        ))
+                      }
                     </div>
                   ))
                 }
