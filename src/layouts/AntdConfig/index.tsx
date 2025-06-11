@@ -26,7 +26,8 @@ const themeSettings: ThemeConfig = {
     },
   },
   token: {
-    colorPrimary: '#7F8CF3',
+    colorPrimary: import.meta.env.VITE_PRIMARY_COLOR,
+    colorLink: import.meta.env.VITE_PRIMARY_COLOR,
   },
 }
 function toggleCssDarkMode(darkMode = false) {
@@ -90,7 +91,6 @@ function ContextHolder() {
   window.$modal = modal
   window.$notification = notification
   const { token } = theme.useToken()
-  console.log('🚀 ~ ContextHolder ~ tokens:', token)
 
   useEffect(() => {
     addThemeVarsToGlobal(token)

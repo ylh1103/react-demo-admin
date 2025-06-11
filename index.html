@@ -2,77 +2,163 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="expires" content="0" />
     <title>%VITE_APP_TITLE%</title>
   </head>
   <style>
-    .loader_wrapper {
-      background-color: white;
-    }
-    .loader_title {
+    .loader {
       position: fixed;
-      top: 45%;
+      top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-family: Helvetica;
-      white-space: nowrap;
-      animation: 1s fadein ease-in-out forwards;
-      /* -webkit-box-reflect: below 5px linear-gradient(transparent, rgba(0, 0, 0, 0.2)); */
+      width: 12em;
+      height: 3em;
+      color: black;
+      font-weight: 700;
+      font-style: oblique;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    .loader_title span {
-      font-size: 150px;
-      display: inline-block;
-      -webkit-text-stroke: 4px #000;
-      animation: 2s jump ease-in-out 2s infinite;
-      animation-delay: var(--delay);
-      color: transparent;
-      /* text-transform: uppercase; */
+
+    .loader p {
+      font-size: 1.5em;
     }
-    @keyframes jump {
+
+    .arrows {
+      width: 1.75em;
+      height: 2em;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.5em;
+    }
+
+    .arrow1,
+    .arrow2,
+    .arrow3,
+    .arrow4 {
+      width: 0.75em;
+      height: 0.75em;
+      border: solid 0.05em transparent;
+    }
+    .arrowsup {
+      width: 100%;
+      height: 25%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .arrowsbottom {
+      width: 100%;
+      height: 25%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .arrow1 {
+      clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 0% 100%);
+      animation: whitechange 2s linear infinite;
+    }
+    .arrow2 {
+      clip-path: polygon(0% 0%, 0% 0%, 100% 100%, 0% 100%);
+      animation: whitechange 2s linear infinite 0.5s;
+    }
+    .arrow3 {
+      clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 0%);
+      animation: whitechange 2s linear infinite 1.5s;
+    }
+    .arrow4 {
+      clip-path: polygon(0% 0%, 100% 0%, 0% 100%, 0% 100%);
+      animation: whitechange 2s linear infinite 1s;
+    }
+
+    .loader p:nth-child(1) {
+      animation: changefont 2s linear infinite;
+    }
+    .loader p:nth-child(2) {
+      animation: changefont 2s linear infinite 0.1s;
+    }
+    .loader p:nth-child(3) {
+      animation: changefont 2s linear infinite 0.2s;
+    }
+    .loader p:nth-child(4) {
+      animation: changefont 2s linear infinite 0.3s;
+    }
+    .loader p:nth-child(5) {
+      animation: changefont 2s linear infinite 0.4s;
+    }
+    .loader p:nth-child(6) {
+      animation: changefont 2s linear infinite 0.5s;
+    }
+    .loader p:nth-child(7) {
+      animation: changefont 2s linear infinite 0.6s;
+    }
+    .loader p:nth-child(8) {
+      animation: changefont 2s linear infinite 0.7s;
+    }
+
+    @keyframes whitechange {
       0% {
-        transform: translateY(0px);
-        color: transparent;
-        text-shadow: none;
+        background-color: transparent;
+        box-shadow: none;
       }
-      20% {
-        transform: translateY(-40px);
-        color: #000;
-        text-shadow:
-          0 0 5px rgba(0, 0, 0, 0.3),
-          0 0 25px rgba(0, 0, 0, 0.3),
-          0 0 50px rgba(0, 0, 0, 0.3);
+      25% {
+        background-color: black;
       }
-      40%,
+      50% {
+        background-color: transparent;
+        box-shadow: none;
+      }
       100% {
-        transform: translateY(0px);
-        color: transparent;
-        text-shadow: none;
+        background-color: transparent;
+        box-shadow: none;
       }
     }
 
-    @keyframes fadein {
-      from {
-        opacity: 0;
+    @keyframes changefont {
+      0% {
+        padding-bottom: 0em;
       }
-      to {
-        opacity: 1;
+      50% {
+        padding-bottom: 0em;
+      }
+      75% {
+        padding-bottom: 1em;
+      }
+      100% {
+        color: #fff;
+        padding-bottom: 0em;
       }
     }
   </style>
   <body>
     <div id="root">
-      <div class="loader_wrapper">
-        <h1 class="loader_title">Mj_Insight</h1>
+      <div class="loader">
+        <p>I</p>
+        <p>N</p>
+        <p>S</p>
+        <p>I</p>
+        <p>G</p>
+        <p>H</p>
+        <p>T</p>
+        <p>X</p>
+        <div class="arrows">
+          <div class="arrowsup">
+            <div class="arrow1"></div>
+            <div class="arrow2"></div>
+          </div>
+          <div class="arrowsbottom">
+            <div class="arrow3"></div>
+            <div class="arrow4"></div>
+          </div>
+        </div>
       </div>
     </div>
     <script type="module" src="/src/main.tsx"></script>
-    <script>
-      const h1 = document.querySelector('.loader_title')
-      h1.innerHTML = h1.textContent.replace(/\S/g, '<span>$&</span>')
-      document.querySelectorAll('.loader_title span').forEach((span, index) => {
-        span.style.setProperty('--delay', `${index * 0.15 + 1}s`)
-      })
-    </script>
   </body>
 </html>

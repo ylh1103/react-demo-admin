@@ -1,17 +1,21 @@
 interface Window {
-  /** Ant-design-vue message instance */
   $message?: import('antd/es/message/interface').MessageInstance
-  /** Ant-design-vue modal instance */
-  $modal?: Omit<import('antd/es/modal/confirm').ModalStaticFunctions, 'warn'>
-  /** Ant-design-vue notification instance */
+  $modal?: import('antd/es/modal/useModal').HookAPI
   $notification?: import('antd/es/notification/interface').NotificationInstance
-  /** NProgress instance */
   NProgress?: import('nprogress').NProgress
-  __POWERED_BY_QIANKUN__: boolean
   $highlighter: import('shiki').HighlighterGeneric
+  __POWERED_BY_QIANKUN__: boolean
 }
 
-/** Build time of the project */
+// 构建时间
 declare const BUILD_TIME: string
 
 type SetStateAction<T> = React.Dispatch<React.SetStateAction<T>>
+
+type ImportMetaEnv = Env.ImportMeta & {
+  BASE_URL: string
+  MODE: string
+  DEV: string
+  PROD: string
+  SSR: string
+}
