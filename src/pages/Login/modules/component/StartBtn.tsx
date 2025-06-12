@@ -1,17 +1,21 @@
 import GlowingButton from './GlowingButton'
 
-function StartBtn() {
+interface StartBtnProps {
+  showSibling?: boolean
+  showIcon?: boolean
+}
+
+const StartBtn: FC<StartBtnProps> = ({ showIcon, showSibling }) => {
   const handleLogin = () => {
   }
 
   return (
-    <div className="mt-11 <lg:mt-7 <md:mt-5 <xl:mt-9">
-      <GlowingButton onClick={handleLogin}>
-        开始使用
-        <IconLocalArrowRight className="h-[9px] w-[17px] text-[#5A250A]" />
-      </GlowingButton>
-    </div>
-
+    <GlowingButton showSibling={showSibling} onClick={handleLogin}>
+      开始使用
+      {
+        showIcon && <IconLocalArrowRight className="h-[9px] w-[17px] text-[#5A250A]" />
+      }
+    </GlowingButton>
   )
 }
 

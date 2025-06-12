@@ -172,6 +172,7 @@
     "CirclePrimary": true,
     "AQRCode": true,
     "IconLocalHeart": true,
-    "IconLineMdExternalLink": true
+    "IconLineMdExternalLink": true,
+    "IconLocalFire": true
   }
 }

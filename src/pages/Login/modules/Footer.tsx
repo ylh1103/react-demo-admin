@@ -68,13 +68,13 @@ const Footer: React.FC = () => {
   return (
     <div>
       <div className="footer_top relative flex flex-wrap justify-between gap-20 pb-15 pt-20 <sm:flex-col">
-        <div className="flex-col gap-8 <sm:items-center">
+        <div className="flex-col gap-8 items-center">
           <div className="flex-y-center select-none gap-2 text-2xl font-800 <md:text-xl">
             <IconLocalLogo />
             InsightX
           </div>
           <div>
-            <p className="text_gradient mb-2 <sm:text-center">了解更多，加入招呼群</p>
+            <p className="text_gradient mb-2 text-center">了解更多，加入招呼群</p>
             <AQRCode className="text-white" type="svg" value="http://localhost:5173/login" bgColor="#fff" icon="/favicon.svg" />
           </div>
         </div>

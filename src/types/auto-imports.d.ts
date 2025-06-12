@@ -31,6 +31,7 @@ declare global {
   const IconLocalConstructionDark: typeof import('~icons/local/construction-dark.tsx')['default']
   const IconLocalFailure: typeof import('~icons/local/failure.tsx')['default']
   const IconLocalFailureDark: typeof import('~icons/local/failure-dark.tsx')['default']
+  const IconLocalFire: typeof import('~icons/local/fire.tsx')['default']
   const IconLocalHeart: typeof import('~icons/local/heart.tsx')['default']
   const IconLocalIdle: typeof import('~icons/local/idle.tsx')['default']
   const IconLocalIdleDark: typeof import('~icons/local/idle-dark.tsx')['default']
