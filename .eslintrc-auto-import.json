@@ -169,6 +169,9 @@
     "IconTeenyiconsTopRightSolid": true,
     "IconTeenyiconsArrowRightSolid": true,
     "IconLocalArrowRight": true,
-    "CirclePrimary": true
+    "CirclePrimary": true,
+    "AQRCode": true,
+    "IconLocalHeart": true,
+    "IconLineMdExternalLink": true
   }
 }

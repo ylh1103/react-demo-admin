@@ -4,6 +4,8 @@ import Header from './modules/Header'
 import Section1 from './modules/Section1'
 import Section2 from './modules/Section2'
 import Section3 from './modules/Section3'
+import Section4 from './modules/Section4'
+import Section5 from './modules/Section5'
 
 function Login() {
   return (
@@ -13,6 +15,8 @@ function Login() {
       <div className="m-auto max-w-screen-xl flex-col gap-24 px-8 <md:px-4">
         <Section2 />
         <Section3 />
+        <Section4 />
+        <Section5 />
         <Footer />
       </div>
     </div>

@@ -130,17 +130,38 @@
       transform: translate(var(--translate-x));
       transition: cubic-bezier(0.6, 0.6, 0, 1) transform;
     }
-  }
 
-  .text_gradient {
-    background: linear-gradient(180deg, #fff 22.5%, #ffffffb3);
-    background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-    font-weight: 800;
-  }
-  .text_desc {
-    color: #9b96b0;
+    .footer_top {
+      &::after {
+        background: radial-gradient(50% 56400% at 50% 100%, #a9a3c23d, #a9a3c200);
+        bottom: 0;
+        content: '';
+        height: 1px;
+        left: 0;
+        position: absolute;
+        width: 100%;
+      }
+      &::before {
+        background: linear-gradient(270deg, #3d354e00 28.87%, #3d354e 45.39%, #3d354e 53.54%, #3d354e00 70.06%);
+        top: 0;
+        content: '';
+        height: 1px;
+        left: 0;
+        position: absolute;
+        width: 100%;
+      }
+    }
+
+    .text_gradient {
+      background: linear-gradient(180deg, #fff 22.5%, #ffffffb3);
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800;
+    }
+    .text_desc {
+      color: #9b96b0;
+    }
   }
 }
 
