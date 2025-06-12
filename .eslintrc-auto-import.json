@@ -173,6 +173,9 @@
     "AQRCode": true,
     "IconLocalHeart": true,
     "IconLineMdExternalLink": true,
-    "IconLocalFire": true
+    "IconLocalFire": true,
+    "MyChartOption": true,
+    "MyChartProps": true,
+    "SChart": true
   }
 }

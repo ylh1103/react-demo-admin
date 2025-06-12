@@ -59,6 +59,7 @@ declare global {
   const Outlet: typeof import('react-router-dom')['Outlet']
   const Route: typeof import('react-router-dom')['Route']
   const Routes: typeof import('react-router-dom')['Routes']
+  const SChart: typeof import('../components/SChart/index')['default']
   const SyntaxHighlighter: typeof import('../components/SyntaxHighlighter/index')['default']
   const createRef: typeof import('react')['createRef']
   const forwardRef: typeof import('react')['forwardRef']
@@ -175,4 +176,7 @@ declare global {
   // @ts-ignore
   export type { FC } from 'react'
   import('react')
+  // @ts-ignore
+  export type { MyChartOption, MyChartProps } from '../components/SChart/index'
+  import('../components/SChart/index')
 }

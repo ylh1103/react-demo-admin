@@ -19,3 +19,4 @@ type ImportMetaEnv = Env.ImportMeta & {
   PROD: string
   SSR: string
 }
+type EChartsType = import('echarts').EChartsType

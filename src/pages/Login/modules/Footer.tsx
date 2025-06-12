@@ -66,9 +66,9 @@ const links = [
 
 const Footer: React.FC = () => {
   return (
-    <div>
+    <div className="footer_box">
       <div className="footer_top relative flex flex-wrap justify-between gap-20 pb-15 pt-20 <sm:flex-col">
-        <div className="flex-col gap-8 items-center">
+        <div className="flex-col items-center gap-8">
           <div className="flex-y-center select-none gap-2 text-2xl font-800 <md:text-xl">
             <IconLocalLogo />
             InsightX
